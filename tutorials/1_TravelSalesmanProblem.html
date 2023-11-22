@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" text="text/css" href="../styles.css">
+    <meta charset="UTF-8">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V9043QSBQP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-V9043QSBQP');
+    </script>
+    <title>1_Travel Salesman Problem</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div>
+        <nav class="navbar navbar-expand-md navbar-dark colorize pt-1 pt-2">
+            <a class="navbar-brand img-fluid" href="./index.html">
+                <img src="./Images/HomeIcon.png" style="width: 120px; padding: 1.2rem;" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-sm-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <!-- <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a> -->
+                        <a class="nav-link nav--text" href="./WedDesign.html" style="color: white;">Web design</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a> -->
+                        <a class="nav-link nav--text" href="./portfolio.html" style="color: white;">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav--text" href="./outreach.html" style="color: white;">Outreach</a>
+                    </li>
+                    <!-- A special type of dropdown item -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="./teaching.html" style="color: white;"
+                            id="navbarDropdown" role="button" data-toggle="dropdown">
+                            Teaching
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="teachingUBC.html"
+                                style="color: white; background-color: rgb(12, 12, 11);" target="_blank">Genetics at
+                                UBC</a>
+                            <div class="dropdown-divider" style="background-color: white; height: 2px;"></div>
+                            <a class="dropdown-item" href="teachingCode.html" style="color: white;"
+                                target="_blank">Coding for kids</a>
+                            <a class="dropdown-item" href="teachingSTEM.html" style="color: white;" target="_blank">STEM
+                                for kids</a>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav--text" href="./microptics.html" style="color: white;">Microptics</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container-fluid p-3 pb-0 pt-0">
+
+
+        <div class="mainCenterTxt--black p-4">
+            <h2>The Travel Salesman Problem</h2>
+            The Travel Salesman Problem (TSP) is an example of a NP-problem; one where the number of possible solutions
+            cannot be solved with a reasonable amount of time. Because the relevance in the history and applications of
+            this particular algorithm, it has become a benchmark, a point of reference, to evaluate heuristic algorithms
+            that connect with NP-problems.
+            <br><br>
+
+
+            <!-- 1. Exhaustive search -->
+            <p>
+                <hr>
+                <hr>
+
+            <div>
+                <h2>The parameters for the algorithm are</h2>
+                <ul>
+                    <li><strong>ITERATIONS:</strong> float - The number of trials to try to find the best (smallest)
+                        score</li>
+                    <li><strong>MATRIX_DISTANCES:</strong> [[CITY_DISTANCE, ..., n=4], ..., n=4] - the matrix of
+                        distances between cities</li>
+                    <li><strong>CANDIDATE_ORDER_TRAVEL:</strong> [int, ..., n=4] - the arrangement of indexes in which
+                        the travel salesman will visit each city relative to CITIES</li>
+                    <li><strong>BEST_SCORE:</strong> the smallest score found so far in the routes between cities</li>
+                    <li><strong>BEST_CANDIDATE:</strong> [int, ..., n=4] - the BEST arrangement of indexes in which the
+                        travel salesman will visit each city</li>
+                </ul>
+            </div>
+
+
+
+
+
+            <div>
+                <!-- HTML generated using hilite.me -->
+                <div
+                    style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                    <pre style="margin: 0; line-height: 125%"><span style="color: #888888"># MODULES</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">random</span>
+
+<span style="color: #888888"># DATA DEFINITIONS</span>
+
+ITERATIONS <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10000</span>
+
+
+<span style="color: #888888"># DD. MATRIX_DISTANCES</span>
+<span style="color: #888888"># md = [[CITY_DISTANCE, ..., n=4], ..., n=4]</span>
+<span style="color: #888888"># interp. the matrix of distances between cities</span>
+md <span style="color: #333333">=</span> [
+        [<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">16</span>,<span style="color: #0000DD; font-weight: bold">13</span>,<span style="color: #0000DD; font-weight: bold">5</span>],
+        [<span style="color: #0000DD; font-weight: bold">16</span>,<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">20</span>,<span style="color: #0000DD; font-weight: bold">9</span>],
+        [<span style="color: #0000DD; font-weight: bold">13</span>,<span style="color: #0000DD; font-weight: bold">20</span>,<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">7</span>],
+        [<span style="color: #0000DD; font-weight: bold">5</span>, <span style="color: #0000DD; font-weight: bold">9</span>, <span style="color: #0000DD; font-weight: bold">7</span>,<span style="color: #0000DD; font-weight: bold">0</span>]
+     ]
+
+
+
+<span style="color: #888888"># DD. CANDIDATE_ORDER_OF_TRAVEL</span>
+<span style="color: #888888"># cot = [int, ..., n=4]</span>
+<span style="color: #888888"># interp. the arrangement of indexes in which the travel salesman will visit each city relative to CITIES</span>
+cot <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">1</span>,<span style="color: #0000DD; font-weight: bold">2</span>,<span style="color: #0000DD; font-weight: bold">3</span>] <span style="color: #888888">#A,B,C,D</span>
+
+<span style="color: #888888"># DD. BEST_SCORE</span>
+<span style="color: #888888"># bsc = float</span>
+<span style="color: #888888"># interp. the smallest score found so far in the routes between cities</span>
+bsc <span style="color: #333333">=</span> <span style="color: #007020">sum</span>([<span style="color: #007020">sum</span>(i) <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> md])
+
+<span style="color: #888888"># DD. BEST_CANDIDATE</span>
+<span style="color: #888888"># bcot = [int, ..., n=4]</span>
+<span style="color: #888888"># interp. the BEST arrangement of indexes in which the travel salesman will visit each city relative to CITIES</span>
+bcot <span style="color: #333333">=</span> cot
+</pre>
+                </div>
+
+            </div>
+
+            <div>
+                <h2>The Algorithm</h2>
+                <ul>
+                    <li>While in range of ITERATIONS:</li>
+                    <ul>
+                        <li>Initialize a score and set it to zero</li>
+                        <li>Shuffle CANDIDATE_ORDER_TRAVEL</li>
+                        <li>Traverse the MATRIX_DISTANCES using the indexes provided by CANDIDATE_ORDER_TRAVEL, while
+                            adding to the score</li>
+                        <li>Add to the score the CANDIDATE_ORDER_TRAVEL from the last index -1, at the index 0,
+                            representing the distance from the last city back to the first one</li>
+                        <li>Is the score better than the BEST_SCORE? T: make BEST_SCORE = score, and BEST_CANDIDATE =
+                            CANDIDATE_ORDER_TRAVEL</li>
+                    </ul>
+                    <li>Create a STRING_OF_CITIES to populate the sequence of letters that map the indexes from
+                        BEST_CANDIDATE</li>
+                    <li>For every INDEX in BEST_CANDIDATE:</li>
+                    <ul>
+                        <li>Add to the STRING_OF_CITIES the string that matches the city's name at INDEX</li>
+                    </ul>
+                    <li>Add to the STRING_OF_CITIES the string that matches the city's name at BEST_CANDIDATE at index 0
+                    </li>
+                </ul>
+            </div>
+
+
+
+
+
+            </p>
+
+
+
+
+
+        </div>
+
+
+        <div>
+
+            Here's a visualization of the Travel Salesman Problem!
+            <div>
+                <div style="text-align: center; margin-top: 2em;"><iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/m6U9lzeDamE?si=UhjTMmobnthuHuIc" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe></div>
+            </div>
+
+            Let's take a look at the algorithm in action!
+            <div>
+                <div style="text-align: center; margin-top: 2em;"><iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/sxz-6NOxHA4?si=xe6948HDZBML-7bS" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe></div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid p-3 pb-0 pt-0">
+        <!-- HTML generated using hilite.me -->
+        <div
+            style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+            <pre style="margin: 0; line-height: 125%"><span style="color: #888888"># MODULES</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">random</span>
+
+<span style="color: #888888"># DATA DEFINITIONS</span>
+
+ITERATIONS <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10000</span>
+
+
+<span style="color: #888888"># DD. MATRIX_DISTANCES</span>
+<span style="color: #888888"># md = [[CITY_DISTANCE, ..., n=4], ..., n=4]</span>
+<span style="color: #888888"># interp. the matrix of distances between cities</span>
+md <span style="color: #333333">=</span> [
+        [<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">16</span>,<span style="color: #0000DD; font-weight: bold">13</span>,<span style="color: #0000DD; font-weight: bold">5</span>],
+        [<span style="color: #0000DD; font-weight: bold">16</span>,<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">20</span>,<span style="color: #0000DD; font-weight: bold">9</span>],
+        [<span style="color: #0000DD; font-weight: bold">13</span>,<span style="color: #0000DD; font-weight: bold">20</span>,<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">7</span>],
+        [<span style="color: #0000DD; font-weight: bold">5</span>, <span style="color: #0000DD; font-weight: bold">9</span>, <span style="color: #0000DD; font-weight: bold">7</span>,<span style="color: #0000DD; font-weight: bold">0</span>]
+     ]
+
+
+
+<span style="color: #888888"># DD. CANDIDATE_ORDER_OF_TRAVEL</span>
+<span style="color: #888888"># cot = [int, ..., n=4]</span>
+<span style="color: #888888"># interp. the arrangement of indexes in which the travel salesman will visit each city relative to CITIES</span>
+cot <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">1</span>,<span style="color: #0000DD; font-weight: bold">2</span>,<span style="color: #0000DD; font-weight: bold">3</span>] <span style="color: #888888">#A,B,C,D</span>
+
+<span style="color: #888888"># DD. BEST_SCORE</span>
+<span style="color: #888888"># bsc = float</span>
+<span style="color: #888888"># interp. the smallest score found so far in the routes between cities</span>
+bsc <span style="color: #333333">=</span> <span style="color: #007020">sum</span>([<span style="color: #007020">sum</span>(i) <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> md])
+
+<span style="color: #888888"># DD. BEST_CANDIDATE</span>
+<span style="color: #888888"># bcot = [int, ..., n=4]</span>
+<span style="color: #888888"># interp. the BEST arrangement of indexes in which the travel salesman will visit each city relative to CITIES</span>
+bcot <span style="color: #333333">=</span> cot
+
+<span style="color: #888888"># CODE</span>
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">getCityByIndex</span>(idx):
+    <span style="color: #008800; font-weight: bold">if</span> idx <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>:
+        <span style="color: #008800; font-weight: bold">return</span> <span style="background-color: #fff0f0">&quot;A&quot;</span>
+    <span style="color: #008800; font-weight: bold">elif</span> idx <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">1</span>:
+        <span style="color: #008800; font-weight: bold">return</span> <span style="background-color: #fff0f0">&quot;B&quot;</span>
+    <span style="color: #008800; font-weight: bold">elif</span> idx <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">2</span>:
+        <span style="color: #008800; font-weight: bold">return</span> <span style="background-color: #fff0f0">&quot;C&quot;</span>
+    <span style="color: #008800; font-weight: bold">else</span>:
+        <span style="color: #008800; font-weight: bold">return</span> <span style="background-color: #fff0f0">&quot;D&quot;</span>
+
+
+<span style="color: #008800; font-weight: bold">for</span> _ <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(ITERATIONS):
+    random<span style="color: #333333">.</span>shuffle(cot)
+    score <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+    <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #007020">len</span>(cot)<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>):
+        score <span style="color: #333333">+=</span> md[cot[i]][cot[i<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>]]
+    score <span style="color: #333333">+=</span> md[cot[<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>]][cot[<span style="color: #0000DD; font-weight: bold">0</span>]]
+    <span style="color: #008800; font-weight: bold">if</span> bsc <span style="color: #333333">&gt;</span> score:
+        bsc <span style="color: #333333">=</span> score
+        bcot <span style="color: #333333">=</span> <span style="color: #007020">list</span>(cot)
+
+
+
+
+stringOfCities <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span>
+<span style="color: #008800; font-weight: bold">for</span> idx <span style="color: #000000; font-weight: bold">in</span> bcot:
+    stringOfCities <span style="color: #333333">+=</span> getCityByIndex(idx) <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;-&quot;</span>
+stringOfCities <span style="color: #333333">+=</span> getCityByIndex(bcot[<span style="color: #0000DD; font-weight: bold">0</span>])
+
+<span style="color: #008800; font-weight: bold">print</span>(bsc)
+<span style="color: #008800; font-weight: bold">print</span>(stringOfCities)
+</pre>
+        </div>
+
+    </div>
+
+</body>

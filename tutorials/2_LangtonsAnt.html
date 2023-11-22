@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" text="text/css" href="../styles.css">
+    <meta charset="UTF-8">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V9043QSBQP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-V9043QSBQP');
+    </script>
+    <title>2_Emergence: Langton's ant</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div>
+        <nav class="navbar navbar-expand-md navbar-dark colorize pt-1 pt-2">
+            <a class="navbar-brand img-fluid" href="./index.html">
+                <img src="./Images/HomeIcon.png" style="width: 120px; padding: 1.2rem;" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-sm-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <!-- <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a> -->
+                        <a class="nav-link nav--text" href="./WedDesign.html" style="color: white;">Web design</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a> -->
+                        <a class="nav-link nav--text" href="./portfolio.html" style="color: white;">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav--text" href="./outreach.html" style="color: white;">Outreach</a>
+                    </li>
+                    <!-- A special type of dropdown item -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="./teaching.html" style="color: white;"
+                            id="navbarDropdown" role="button" data-toggle="dropdown">
+                            Teaching
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="teachingUBC.html"
+                                style="color: white; background-color: rgb(12, 12, 11);" target="_blank">Genetics at
+                                UBC</a>
+                            <div class="dropdown-divider" style="background-color: white; height: 2px;"></div>
+                            <a class="dropdown-item" href="teachingCode.html" style="color: white;"
+                                target="_blank">Coding for kids</a>
+                            <a class="dropdown-item" href="teachingSTEM.html" style="color: white;" target="_blank">STEM
+                                for kids</a>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav--text" href="./microptics.html" style="color: white;">Microptics</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container-fluid p-3 pb-0 pt-0">
+
+
+        <div class="mainCenterTxt--black p-4">
+
+            <div style="padding-top: 2em;">
+                Traditional 2D-grid systems are probably the most famous forms of cellular automata. Pioneered by John von Neumann
+                in the late 40's, cellular automata became famous in the 70's with the implementation of "Conway's Game of Life". However, there a
+                multiple forms of cellular automata, some of which are not restricted to grids anymore.
+            </div>
+
+            <div style="padding-top: 2em;">
+                The world of automata is vast and diverse. If you're interested in this family of algorithms I recommend
+                to you:
+                <ul>
+                    <li><a href="https://mathworld.wolfram.com/topics/AppliedMathematics.html">Stephen Wolfram's book on
+                            cellular automata</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/The_Chemical_Basis_of_Morphogenesis">Alan Turing's
+                            reaction difussion systems</a></li>
+                    <li><a href="https://www.ventrella.com/Clusters/">Clusters, by Jeffrey Ventrella</a></li>
+                </ul>
+            </div>
+
+            <br><br>
+
+
+            <hr>
+            <div>
+                <h2>Langton's ant</h2>
+                <div>
+                    This algorithm is a very simple form of cellular automata. A 2D grid system is made of tiles that
+                    can be white or black. An agent is placed at a particular row and column in the grid. If the agent
+                    lands in a white tile, the agent turns 90 deg. in a clockwise direction, changes the tile's color to
+                    black, then moving forward. The same goes for black tiles, except the rotation is counter-clockwise.
+                </div>
+                <div>
+                    Let's take a look at how the algorithm works
+                </div>
+            </div>
+
+
+
+
+            <div>
+                <h2>The parameters of the Algorithm</h2>
+                <ul>
+                    <li><strong>RES:</strong> int - tile size</li>
+                    <li><strong>DIMS:</strong> (int,int) - Number of columns and rows of tiles that make the grid</li>
+                    <li><strong>SCREEN:</strong> (int,int) - Dimensions of the screen in pixels </li>
+                    <li><strong>FPS:</strong> int - Frames per second of animation </li>
+                    <li><strong>TILE:</strong> Tile() - Class Tile that represent the basic unit of information in the
+                        system</li>
+                    <li><strong>GRID:</strong> [[TILE, ..., n=DIMS[0]], ..., n = DIMS[1]] - a 2D matrix of TILE with
+                        dimensions given by the columns and rows of DIMS</li>
+                    <li><strong>CURRENT_ANT:</strong> TILE - A position in the grid, considered the ant</li>
+                    <li><strong>DIRECTION: </strong> [int, int, int, int] - current direction of the ant as one hot
+                        vector with the order of directions: Right, Down, Left, Up</li>
+                </ul>
+            </div>
+
+            <div>
+                <!-- HTML generated using hilite.me -->
+                <div
+                    style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                    <pre style="margin: 0; line-height: 125%"><span style="color: #888888"># MODULES</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">pygame</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">random</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">math</span>
+
+<span style="color: #888888"># DATA DEFS</span>
+RES <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">4</span>
+DIMS <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">160</span>,<span style="color: #0000DD; font-weight: bold">160</span>]
+SCREEN <span style="color: #333333">=</span> (RES<span style="color: #333333">*</span>DIMS[<span style="color: #0000DD; font-weight: bold">0</span>],RES<span style="color: #333333">*</span>DIMS[<span style="color: #0000DD; font-weight: bold">1</span>])
+display <span style="color: #333333">=</span> pygame<span style="color: #333333">.</span>display<span style="color: #333333">.</span>set_mode(SCREEN)
+FPS <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">120</span>
+
+<span style="color: #888888"># DD. TILE</span>
+<span style="color: #888888"># tile = Tile(int, int,int)</span>
+<span style="color: #888888"># interp. a tile to be stepped on by an ant</span>
+<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Tile</span>():
+    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">__init__</span>(<span style="color: #007020">self</span>,x,y):
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>x <span style="color: #333333">=</span> x <span style="color: #333333">*</span> RES
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>y <span style="color: #333333">=</span> y <span style="color: #333333">*</span> RES
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>c <span style="color: #333333">=</span> x
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>r <span style="color: #333333">=</span> y
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>rect <span style="color: #333333">=</span> pygame<span style="color: #333333">.</span>Rect(<span style="color: #007020">self</span><span style="color: #333333">.</span>x, <span style="color: #007020">self</span><span style="color: #333333">.</span>y, RES, RES)
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>rect<span style="color: #333333">.</span>topleft <span style="color: #333333">=</span> (<span style="color: #007020">self</span><span style="color: #333333">.</span>x, <span style="color: #007020">self</span><span style="color: #333333">.</span>y)
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>state <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+
+    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">drawSquare</span>(<span style="color: #007020">self</span>):
+        pygame<span style="color: #333333">.</span>draw<span style="color: #333333">.</span>rect(display,<span style="color: #007020">self</span><span style="color: #333333">.</span>getColor(),<span style="color: #007020">self</span><span style="color: #333333">.</span>rect)
+
+    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">getColor</span>(<span style="color: #007020">self</span>):
+        <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>state <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>: <span style="color: #008800; font-weight: bold">return</span> <span style="background-color: #fff0f0">&quot;white&quot;</span>
+        <span style="color: #008800; font-weight: bold">return</span> <span style="background-color: #fff0f0">&quot;black&quot;</span>
+
+<span style="color: #888888"># tile = Tile(0,0)   #stub</span>
+
+<span style="color: #888888"># DD. TILEROW</span>
+<span style="color: #888888"># tileRow = [TILE, ..., n=DIMS[0]]</span>
+<span style="color: #888888"># interp. a row of tiles in the system</span>
+tileRow <span style="color: #333333">=</span> []
+<span style="color: #008800; font-weight: bold">for</span> c <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(DIMS[<span style="color: #0000DD; font-weight: bold">0</span>]):
+    tile <span style="color: #333333">=</span> Tile(c,<span style="color: #0000DD; font-weight: bold">0</span>)
+    tileRow<span style="color: #333333">.</span>append(tile)
+
+<span style="color: #888888"># --------TEMPLATE FOR TILEROW--------</span>
+<span style="color: #888888"># for tile in tileRow:</span>
+<span style="color: #888888">#   ... tile</span>
+
+
+
+<span style="color: #888888"># DD. GRID</span>
+<span style="color: #888888"># grid = [TILEROW, ..., n=DIMS[1]]</span>
+<span style="color: #888888"># interp. a grid of tiles in a 2D array</span>
+grid <span style="color: #333333">=</span> []
+<span style="color: #008800; font-weight: bold">for</span> r <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(DIMS[<span style="color: #0000DD; font-weight: bold">1</span>]):
+    tileRow <span style="color: #333333">=</span> []
+    <span style="color: #008800; font-weight: bold">for</span> c <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(DIMS[<span style="color: #0000DD; font-weight: bold">0</span>]):
+        tile <span style="color: #333333">=</span> Tile(c,r)
+        tileRow<span style="color: #333333">.</span>append(tile)
+    grid<span style="color: #333333">.</span>append(tileRow)
+
+<span style="color: #888888"># --------TEMPLATE FOR GRID -------</span>
+<span style="color: #888888"># for tileRow in grid:</span>
+<span style="color: #888888">#     for tile in tileRow:</span>
+<span style="color: #888888">#         ...tile</span>
+
+
+<span style="color: #888888"># DD. CURRENTANT</span>
+<span style="color: #888888"># ca = TILE</span>
+<span style="color: #888888"># interp. a tile from the grid to represent a current ant</span>
+ca <span style="color: #333333">=</span> grid[DIMS[<span style="color: #0000DD; font-weight: bold">0</span>]<span style="color: #333333">//</span><span style="color: #0000DD; font-weight: bold">2</span>][DIMS[<span style="color: #0000DD; font-weight: bold">1</span>]<span style="color: #333333">//</span><span style="color: #0000DD; font-weight: bold">2</span>]
+
+<span style="color: #888888"># DD. DIRECTION</span>
+<span style="color: #888888"># dir = [int,int,int,int]</span>
+<span style="color: #888888"># interp. the direction of the ant as RIGHT, DOWN, LEFT, UP</span>
+dir_R <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">1</span>,<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>] <span style="color: #888888">#RIGHT</span>
+dir_D <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">1</span>,<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>] <span style="color: #888888">#DOWN</span>
+dir_L <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">1</span>,<span style="color: #0000DD; font-weight: bold">0</span>] <span style="color: #888888">#LEFT</span>
+dir_U <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">1</span>] <span style="color: #888888">#UP</span>
+</pre>
+                </div>
+
+
+            </div>
+
+            <div>
+                <h2>The Algorithm</h2>
+                <ul>
+                    <li>Is the CURRENT_ANT state 0 (white)?</li>
+                    <ul>
+                        <li>T: correct the DIRECTION to index + 1. Change the color to Black</li>
+                        <li>F: correct the DIRECTION to index - 1. Change the color to white</li>
+                    </ul>
+                    <li>Update the position of the CURRENT_ANT, following the new DIRECTION</li>
+                </ul>
+
+            </div>
+
+
+
+
+
+            </p>
+
+
+
+
+
+        </div>
+
+
+        <div>
+            <div>
+                <div style="text-align: center; margin-top: 2em;"><iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/43B_a0ODScU?si=7WWJxDtoFpmMSa5O" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe></div>
+            </div>
+            Here's a step by step tutorial on how to implement Langton's algorithm!
+            <div>
+                <div>
+                    <div style="text-align: center; margin-top: 2em;"><iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/dIIpiq8kero?si=UL2DLzXPISPGi4Fn"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe></div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid p-3 pb-0 pt-0">
+        <!-- HTML generated using hilite.me -->
+        <!-- HTML generated using hilite.me -->
+        <div
+            style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+            <pre style="margin: 0; line-height: 125%"><span style="color: #888888"># Langton&#39;s ant is a two-dimensional universal Turing machine with a very simple set of rules but complex emergent</span>
+<span style="color: #888888"># behavior. It was invented by Chris Langton in 1986 and runs on a square lattice of black and white cells.</span>
+<span style="color: #888888"># The universality of Langton&#39;s ant was proven in 2000.[2] The idea has been generalized in several different ways,</span>
+<span style="color: #888888"># such as turmites which add more colors and more states.</span>
+
+<span style="color: #888888"># MODULES</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">pygame</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">random</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">math</span>
+
+<span style="color: #888888"># DATA DEFS</span>
+RES <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">4</span>
+DIMS <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">160</span>,<span style="color: #0000DD; font-weight: bold">160</span>]
+SCREEN <span style="color: #333333">=</span> (RES<span style="color: #333333">*</span>DIMS[<span style="color: #0000DD; font-weight: bold">0</span>],RES<span style="color: #333333">*</span>DIMS[<span style="color: #0000DD; font-weight: bold">1</span>])
+display <span style="color: #333333">=</span> pygame<span style="color: #333333">.</span>display<span style="color: #333333">.</span>set_mode(SCREEN)
+FPS <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">120</span>
+
+<span style="color: #888888"># DD. TILE</span>
+<span style="color: #888888"># tile = Tile(int, int,int)</span>
+<span style="color: #888888"># interp. a tile to be stepped on by an ant</span>
+<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Tile</span>():
+    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">__init__</span>(<span style="color: #007020">self</span>,x,y):
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>x <span style="color: #333333">=</span> x <span style="color: #333333">*</span> RES
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>y <span style="color: #333333">=</span> y <span style="color: #333333">*</span> RES
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>c <span style="color: #333333">=</span> x
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>r <span style="color: #333333">=</span> y
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>rect <span style="color: #333333">=</span> pygame<span style="color: #333333">.</span>Rect(<span style="color: #007020">self</span><span style="color: #333333">.</span>x, <span style="color: #007020">self</span><span style="color: #333333">.</span>y, RES, RES)
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>rect<span style="color: #333333">.</span>topleft <span style="color: #333333">=</span> (<span style="color: #007020">self</span><span style="color: #333333">.</span>x, <span style="color: #007020">self</span><span style="color: #333333">.</span>y)
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>state <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+
+    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">drawSquare</span>(<span style="color: #007020">self</span>):
+        pygame<span style="color: #333333">.</span>draw<span style="color: #333333">.</span>rect(display,<span style="color: #007020">self</span><span style="color: #333333">.</span>getColor(),<span style="color: #007020">self</span><span style="color: #333333">.</span>rect)
+
+    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">getColor</span>(<span style="color: #007020">self</span>):
+        <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>state <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>: <span style="color: #008800; font-weight: bold">return</span> <span style="background-color: #fff0f0">&quot;white&quot;</span>
+        <span style="color: #008800; font-weight: bold">return</span> <span style="background-color: #fff0f0">&quot;black&quot;</span>
+
+<span style="color: #888888"># tile = Tile(0,0)   #stub</span>
+
+<span style="color: #888888"># DD. TILEROW</span>
+<span style="color: #888888"># tileRow = [TILE, ..., n=DIMS[0]]</span>
+<span style="color: #888888"># interp. a row of tiles in the system</span>
+tileRow <span style="color: #333333">=</span> []
+<span style="color: #008800; font-weight: bold">for</span> c <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(DIMS[<span style="color: #0000DD; font-weight: bold">0</span>]):
+    tile <span style="color: #333333">=</span> Tile(c,<span style="color: #0000DD; font-weight: bold">0</span>)
+    tileRow<span style="color: #333333">.</span>append(tile)
+
+<span style="color: #888888"># --------TEMPLATE FOR TILEROW--------</span>
+<span style="color: #888888"># for tile in tileRow:</span>
+<span style="color: #888888">#   ... tile</span>
+
+
+
+<span style="color: #888888"># DD. GRID</span>
+<span style="color: #888888"># grid = [TILEROW, ..., n=DIMS[1]]</span>
+<span style="color: #888888"># interp. a grid of tiles in a 2D array</span>
+grid <span style="color: #333333">=</span> []
+<span style="color: #008800; font-weight: bold">for</span> r <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(DIMS[<span style="color: #0000DD; font-weight: bold">1</span>]):
+    tileRow <span style="color: #333333">=</span> []
+    <span style="color: #008800; font-weight: bold">for</span> c <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(DIMS[<span style="color: #0000DD; font-weight: bold">0</span>]):
+        tile <span style="color: #333333">=</span> Tile(c,r)
+        tileRow<span style="color: #333333">.</span>append(tile)
+    grid<span style="color: #333333">.</span>append(tileRow)
+
+<span style="color: #888888"># --------TEMPLATE FOR GRID -------</span>
+<span style="color: #888888"># for tileRow in grid:</span>
+<span style="color: #888888">#     for tile in tileRow:</span>
+<span style="color: #888888">#         ...tile</span>
+
+
+<span style="color: #888888"># DD. CURRENTANT</span>
+<span style="color: #888888"># ca = TILE</span>
+<span style="color: #888888"># interp. a tile from the grid to represent a current ant</span>
+ca <span style="color: #333333">=</span> grid[DIMS[<span style="color: #0000DD; font-weight: bold">0</span>]<span style="color: #333333">//</span><span style="color: #0000DD; font-weight: bold">2</span>][DIMS[<span style="color: #0000DD; font-weight: bold">1</span>]<span style="color: #333333">//</span><span style="color: #0000DD; font-weight: bold">2</span>]
+
+<span style="color: #888888"># DD. DIRECTION</span>
+<span style="color: #888888"># dir = [int,int,int,int]</span>
+<span style="color: #888888"># interp. the direction of the ant as RIGHT, DOWN, LEFT, UP</span>
+dir_R <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">1</span>,<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>] <span style="color: #888888">#RIGHT</span>
+dir_D <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">1</span>,<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>] <span style="color: #888888">#DOWN</span>
+dir_L <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">1</span>,<span style="color: #0000DD; font-weight: bold">0</span>] <span style="color: #888888">#LEFT</span>
+dir_U <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">1</span>] <span style="color: #888888">#UP</span>
+
+<span style="color: #888888">################# CODING #################</span>
+<span style="color: #007020">dir</span> <span style="color: #333333">=</span> <span style="color: #007020">list</span>(dir_R)
+
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">draw</span>():
+    display<span style="color: #333333">.</span>fill(<span style="background-color: #fff0f0">&quot;#1e1e1e&quot;</span>)
+    <span style="color: #008800; font-weight: bold">for</span> tileRow <span style="color: #000000; font-weight: bold">in</span> grid:
+        <span style="color: #008800; font-weight: bold">for</span> tile <span style="color: #000000; font-weight: bold">in</span> tileRow:
+            tile<span style="color: #333333">.</span>drawSquare()
+    pygame<span style="color: #333333">.</span>display<span style="color: #333333">.</span>update()
+    pygame<span style="color: #333333">.</span>time<span style="color: #333333">.</span>Clock()<span style="color: #333333">.</span>tick(FPS)
+
+<span style="color: #888888"># FD. updateTile()</span>
+<span style="color: #888888"># purp. update the states of the tile where the ant is at this frame</span>
+<span style="color: #888888"># If state is 0, change it to 1, else 0</span>
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">updateTile</span>():
+    <span style="color: #008800; font-weight: bold">if</span> grid[ca<span style="color: #333333">.</span>r][ca<span style="color: #333333">.</span>c]<span style="color: #333333">.</span>state <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>:
+        grid[ca<span style="color: #333333">.</span>r][ca<span style="color: #333333">.</span>c]<span style="color: #333333">.</span>state <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+    <span style="color: #008800; font-weight: bold">else</span>:
+        grid[ca<span style="color: #333333">.</span>r][ca<span style="color: #333333">.</span>c]<span style="color: #333333">.</span>state <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+
+<span style="color: #888888"># FD. updateDir()</span>
+<span style="color: #888888"># purp. determine the direction of the variable DIRECTION based on the state of CURRENTANT</span>
+<span style="color: #888888"># if state is 0 (&quot;white&quot;), go to the next index in the list dir</span>
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">updateDir</span>():
+    <span style="color: #008800; font-weight: bold">global</span> ca
+    <span style="color: #008800; font-weight: bold">global</span> <span style="color: #007020">dir</span>
+    <span style="color: #008800; font-weight: bold">if</span> ca<span style="color: #333333">.</span>state <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>:
+        newOnePos <span style="color: #333333">=</span> (<span style="color: #007020">dir</span><span style="color: #333333">.</span>index(<span style="color: #0000DD; font-weight: bold">1</span>)<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>) <span style="color: #333333">%</span> <span style="color: #007020">len</span>(<span style="color: #007020">dir</span>)
+        <span style="color: #007020">dir</span> <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">0</span> <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">4</span>)]
+        <span style="color: #007020">dir</span>[newOnePos] <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+    <span style="color: #008800; font-weight: bold">else</span>:
+        newOnePos <span style="color: #333333">=</span> (<span style="color: #007020">dir</span><span style="color: #333333">.</span>index(<span style="color: #0000DD; font-weight: bold">1</span>)<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>) <span style="color: #333333">%</span> <span style="color: #007020">len</span>(<span style="color: #007020">dir</span>)
+        <span style="color: #007020">dir</span> <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">0</span> <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">4</span>)]
+        <span style="color: #007020">dir</span>[newOnePos] <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+
+
+    <span style="color: #888888"># move ant</span>
+    <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">dir</span> <span style="color: #333333">==</span> dir_R:
+        ca <span style="color: #333333">=</span> grid[(ca<span style="color: #333333">.</span>r<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>)<span style="color: #333333">%</span><span style="color: #007020">len</span>(grid)][ca<span style="color: #333333">.</span>c]
+    <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">dir</span> <span style="color: #333333">==</span> dir_D:
+        ca <span style="color: #333333">=</span> grid[ca<span style="color: #333333">.</span>r][(ca<span style="color: #333333">.</span>c<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>)<span style="color: #333333">%</span><span style="color: #007020">len</span>(grid[<span style="color: #0000DD; font-weight: bold">0</span>])]
+    <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">dir</span> <span style="color: #333333">==</span> dir_L:
+        ca <span style="color: #333333">=</span> grid[ca<span style="color: #333333">.</span>r<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>][ca<span style="color: #333333">.</span>c]
+    <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">dir</span> <span style="color: #333333">==</span> dir_U:
+        ca <span style="color: #333333">=</span> grid[ca<span style="color: #333333">.</span>r][ca<span style="color: #333333">.</span>c<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>]
+
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">update</span>():
+    <span style="color: #008800; font-weight: bold">global</span> <span style="color: #007020">dir</span>
+    updateTile()
+    updateDir()
+    <span style="color: #888888"># if the color is white the state is 0. Change it to 1, change direction 90 degrees to the right, then move in that dir</span>
+    <span style="color: #008800; font-weight: bold">for</span> event <span style="color: #000000; font-weight: bold">in</span> pygame<span style="color: #333333">.</span>event<span style="color: #333333">.</span>get():
+        <span style="color: #008800; font-weight: bold">if</span> event<span style="color: #333333">.</span>type <span style="color: #333333">==</span> pygame<span style="color: #333333">.</span>QUIT:
+            pygame<span style="color: #333333">.</span>quit()
+        
+
+
+
+<span style="color: #008800; font-weight: bold">while</span> <span style="color: #007020">True</span>:
+    draw()
+    update()
+</pre>
+        </div>
+
+
+
+    </div>
+
+</body>

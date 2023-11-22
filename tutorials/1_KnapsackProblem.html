@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" text="text/css" href="../styles.css">
+    <meta charset="UTF-8">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V9043QSBQP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-V9043QSBQP');
+    </script>
+    <title>1_Knapsack Problem</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div>
+        <nav class="navbar navbar-expand-md navbar-dark colorize pt-1 pt-2">
+            <a class="navbar-brand img-fluid" href="./index.html">
+                <img src="./Images/HomeIcon.png" style="width: 120px; padding: 1.2rem;" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-sm-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <!-- <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a> -->
+                        <a class="nav-link nav--text" href="./WedDesign.html" style="color: white;">Web design</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a> -->
+                        <a class="nav-link nav--text" href="./portfolio.html" style="color: white;">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav--text" href="./outreach.html" style="color: white;">Outreach</a>
+                    </li>
+                    <!-- A special type of dropdown item -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="./teaching.html" style="color: white;"
+                            id="navbarDropdown" role="button" data-toggle="dropdown">
+                            Teaching
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="teachingUBC.html"
+                                style="color: white; background-color: rgb(12, 12, 11);" target="_blank">Genetics at
+                                UBC</a>
+                            <div class="dropdown-divider" style="background-color: white; height: 2px;"></div>
+                            <a class="dropdown-item" href="teachingCode.html" style="color: white;"
+                                target="_blank">Coding for kids</a>
+                            <a class="dropdown-item" href="teachingSTEM.html" style="color: white;" target="_blank">STEM
+                                for kids</a>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav--text" href="./microptics.html" style="color: white;">Microptics</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container-fluid p-3 pb-0 pt-0">
+
+
+        <div class="mainCenterTxt--black p-4">
+            <h2>The Knapsack Problem</h2>
+            The Knapsack Problem is a classical example of heuristic algorithms. It originates from the need of
+            accumulating many items, each of which belong to different categories of a measurable value (e.g. size,
+            volume, weight, ...), in order to fill up a container.
+            <br><br>
+
+
+            <hr>
+            <div>
+                Let's suppose you have a bussiness making chocolates during Easter. Your data shows that the total
+                amount of chocolate you spent (on average) over the holidays is <strong>1,200 ml</strong>. Needless to
+                say, that's
+                a lot of chocolate. But chocolate waffles are expensive, and your starting bussiness cannot afford
+                wasting
+                the valuable resource; you have to use and sell the last ml of this chocolate, every last drop.
+            </div>
+
+            <div>
+                Given in <strong>milliliters (ml)</strong>, your company has four chocolate molds for this season:
+            </div>
+
+            <div style="text-align: center;">
+                <img src="../Images/chocolateMolds.png" alt="Chocolate molds" style="padding-top: 2em;">
+            </div>
+
+            <div>
+                For practical purposes, we assume that the number of molds available is infinite. That way we'll be able
+                to use the same type of mold without restrictions. What is the winning combination of molds that will
+                use exactly 1,200 ml OR something as close as possible to it?
+            </div><br>
+
+            <div>
+                <h2>The parameters of the Algorithm</h2>
+                <ul>
+                    <li><strong>TARGET:</strong> float - the total amount of resource that has to be spent</li>
+                    <li><strong>EPOCHS:</strong> int - the total number of iterations we'll use to try finding the best
+                        combination</li>
+                    <li><strong>AVAILABLE_MOLDS:</strong> [MOLD, ...] - the available molds to pick from</li>
+                    <li><strong>ITERATIONS:</strong> int - the total number of iterations we'll use to find a
+                        combination of molds that matches TARGET</li>
+                    <li><strong>LIST_OF_MOLD:</strong> [MOLD, ...] - candidate list of MOLDs during one epoch of EPOCHS
+                    </li>
+                    <li><strong>BEST_LIST_OF_MOLD:</strong> the best list of molds out of the candidates</li>
+                    <li><strong>VOLUME:</strong> float - The added volume of all items in the current candidate
+                        LIST_OF_MOLD</li>
+                    <li><strong>BEST_VOLUME:</strong> float - the added volume of all items in the BEST_LIST_OF_MOLD
+                    </li>
+                    <li><strong>COUNT:</strong> int - the total number of trials that we used to get a VOLUME as close
+                        as a TARGET</li>
+                </ul>
+            </div>
+
+            <div>
+                <!-- HTML generated using hilite.me -->
+                <div
+                    style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                    <pre style="margin: 0; line-height: 125%"><span style="color: #888888">#################### MODULES ###############</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">random</span>
+
+<span style="color: #888888">#################### DD ###############</span>
+EPOCHS <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">100</span>
+ITERATIONS <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1000</span>
+<span style="color: #888888"># DD. MOLD</span>
+<span style="color: #888888"># mold = {&quot;ITEM&quot;:str, &quot;WEIGHT&quot;:float}</span>
+<span style="color: #888888"># interp. the id of a mold used to fill chocolate</span>
+mold_A <span style="color: #333333">=</span> {<span style="background-color: #fff0f0">&quot;ITEM&quot;</span>:<span style="background-color: #fff0f0">&quot;A&quot;</span>, <span style="background-color: #fff0f0">&quot;WEIGHT&quot;</span>:<span style="color: #6600EE; font-weight: bold">0.5</span>}
+mold_B <span style="color: #333333">=</span> {<span style="background-color: #fff0f0">&quot;ITEM&quot;</span>:<span style="background-color: #fff0f0">&quot;B&quot;</span>, <span style="background-color: #fff0f0">&quot;WEIGHT&quot;</span>:<span style="color: #6600EE; font-weight: bold">1.2</span>}
+mold_C <span style="color: #333333">=</span> {<span style="background-color: #fff0f0">&quot;ITEM&quot;</span>:<span style="background-color: #fff0f0">&quot;C&quot;</span>, <span style="background-color: #fff0f0">&quot;WEIGHT&quot;</span>:<span style="color: #6600EE; font-weight: bold">3.2</span>}
+mold_D <span style="color: #333333">=</span> {<span style="background-color: #fff0f0">&quot;ITEM&quot;</span>:<span style="background-color: #fff0f0">&quot;D&quot;</span>, <span style="background-color: #fff0f0">&quot;WEIGHT&quot;</span>:<span style="color: #6600EE; font-weight: bold">5.7</span>}
+
+<span style="color: #888888"># DD. AVAILABLE_MOLDS</span>
+<span style="color: #888888"># avalMold = [MOLD, n=4]</span>
+<span style="color: #888888"># interp. the list of available molds</span>
+avalMold <span style="color: #333333">=</span> [mold_A ,mold_B ,mold_C ,mold_D ]
+
+<span style="color: #888888"># TEMPLATE FOR AVALMOLD</span>
+<span style="color: #888888"># for mold in avalMold:</span>
+<span style="color: #888888">#   ... mold</span>
+
+<span style="color: #888888"># DD. TARGET</span>
+<span style="color: #888888"># ta = float</span>
+<span style="color: #888888"># interp. the total amount of chocolate volume to fill the molds with</span>
+ta <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1200</span>
+
+<span style="color: #888888"># DD. LIST_OF_MOLD</span>
+<span style="color: #888888"># lomold = [MOLD, ...]</span>
+<span style="color: #888888"># interp. the list of molds to make a candidate selection</span>
+lomold <span style="color: #333333">=</span> []
+
+<span style="color: #888888"># DD. BEST_LIST_OF_MOLD</span>
+<span style="color: #888888"># best_lomold = LIST_OF_MOLD</span>
+<span style="color: #888888"># interp. the best list of mold found so far</span>
+best_lomold <span style="color: #333333">=</span> lomold
+
+
+<span style="color: #888888"># DD. VOLUME</span>
+<span style="color: #888888"># vol = float</span>
+<span style="color: #888888"># interp. the added volume of all items in the LIST_OF_MOLD</span>
+vol <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+
+<span style="color: #888888"># DD. BEST_VOLUME</span>
+<span style="color: #888888"># best_vol = float</span>
+<span style="color: #888888"># interp. the added volume of all items in the BEST_LIST_OF_MOLD</span>
+best_vol <span style="color: #333333">=</span> vol
+
+<span style="color: #888888"># DD. COUNT</span>
+<span style="color: #888888"># count = 0</span>
+<span style="color: #888888"># interp. the total number of trials that we used to get a VOLUME as close as a TOTAL_AMNT</span>
+count <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+</pre>
+                </div>
+
+            </div>
+
+            <div>
+                <h2>The Algorithm</h2>
+                <ul>
+                    <li>For every EPOCH:</li>
+                    <ul>
+                        <li>reset VOLUME, COUNT, LIST_OF_MOLD</li>
+                        <li>while the added weight of LIST_OF_MOLD is less than TARGET, AND COUNT is less than
+                            ITERATIONS</li>
+                        <ul>
+                            <li>pick a new candidate item from AVAILABLE_MOLDS</li>
+                            <li>is MOLD weight added to the total VOLUME less or equal than TARGET? T: add MOLD to
+                                LIST_OF_MOLD and MOLD weight to VOLUME</li>
+                            <li>add 1 to count</li>
+                        </ul>
+                        <li>is the VOLUME bigger or equal than BEST_VOLUME? T: make BEST_VOLUME = VOLUME, and BEST_MOLD
+                            = LIST_OF_MOLD</li>
+                    </ul>
+                    <li>Extract and print every mold and their quantities</li>
+
+            </div>
+
+
+
+
+
+            </p>
+
+
+
+
+
+        </div>
+
+
+        <div>
+
+            Here's a step by step tutorial for the Knapsack problem!
+            <div>
+                <div style="text-align: center; margin-top: 2em;"><iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/Sa_TBQT3SnM?si=Nn8TAQ8xMsQd8pdz" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe></div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid p-3 pb-0 pt-0">
+        <!-- HTML generated using hilite.me -->
+        <div
+            style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+            <pre style="margin: 0; line-height: 125%"><span style="color: #888888">#################### MODULES ###############</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">random</span>
+
+<span style="color: #888888">#################### DD ###############</span>
+EPOCHS <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">100</span>
+ITERATIONS <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1000</span>
+<span style="color: #888888"># DD. MOLD</span>
+<span style="color: #888888"># mold = {&quot;ITEM&quot;:str, &quot;VOLUME&quot;:float}</span>
+<span style="color: #888888"># interp. the id of a mold used to fill chocolate</span>
+mold_A <span style="color: #333333">=</span> {<span style="background-color: #fff0f0">&quot;ITEM&quot;</span>:<span style="background-color: #fff0f0">&quot;A&quot;</span>, <span style="background-color: #fff0f0">&quot;VOLUME&quot;</span>:<span style="color: #6600EE; font-weight: bold">0.5</span>}
+mold_B <span style="color: #333333">=</span> {<span style="background-color: #fff0f0">&quot;ITEM&quot;</span>:<span style="background-color: #fff0f0">&quot;B&quot;</span>, <span style="background-color: #fff0f0">&quot;VOLUME&quot;</span>:<span style="color: #6600EE; font-weight: bold">1.2</span>}
+mold_C <span style="color: #333333">=</span> {<span style="background-color: #fff0f0">&quot;ITEM&quot;</span>:<span style="background-color: #fff0f0">&quot;C&quot;</span>, <span style="background-color: #fff0f0">&quot;VOLUME&quot;</span>:<span style="color: #6600EE; font-weight: bold">3.2</span>}
+mold_D <span style="color: #333333">=</span> {<span style="background-color: #fff0f0">&quot;ITEM&quot;</span>:<span style="background-color: #fff0f0">&quot;D&quot;</span>, <span style="background-color: #fff0f0">&quot;VOLUME&quot;</span>:<span style="color: #6600EE; font-weight: bold">5.7</span>}
+
+<span style="color: #888888"># DD. AVAILABLE_MOLDS</span>
+<span style="color: #888888"># avalMold = [MOLD, n=4]</span>
+<span style="color: #888888"># interp. the list of available molds</span>
+avalMold <span style="color: #333333">=</span> [mold_A ,mold_B ,mold_C ,mold_D ]
+
+<span style="color: #888888"># TEMPLATE FOR AVALMOLD</span>
+<span style="color: #888888"># for mold in avalMold:</span>
+<span style="color: #888888">#   ... mold</span>
+
+<span style="color: #888888"># DD. TARGET</span>
+<span style="color: #888888"># ta = float</span>
+<span style="color: #888888"># interp. the total amount of chocolate volume to fill the molds with</span>
+ta <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1200</span>
+
+<span style="color: #888888"># DD. LIST_OF_MOLD</span>
+<span style="color: #888888"># lomold = [MOLD, ...]</span>
+<span style="color: #888888"># interp. the list of molds to make a candidate selection</span>
+lomold <span style="color: #333333">=</span> []
+
+<span style="color: #888888"># DD. BEST_LIST_OF_MOLD</span>
+<span style="color: #888888"># best_lomold = LIST_OF_MOLD</span>
+<span style="color: #888888"># interp. the best list of mold found so far</span>
+best_lomold <span style="color: #333333">=</span> lomold
+
+
+<span style="color: #888888"># DD. VOLUME</span>
+<span style="color: #888888"># vol = float</span>
+<span style="color: #888888"># interp. the added volume of all items in the LIST_OF_MOLD</span>
+vol <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+
+<span style="color: #888888"># DD. BEST_VOLUME</span>
+<span style="color: #888888"># best_vol = float</span>
+<span style="color: #888888"># interp. the added volume of all items in the BEST_LIST_OF_MOLD</span>
+best_vol <span style="color: #333333">=</span> vol
+
+<span style="color: #888888"># DD. COUNT</span>
+<span style="color: #888888"># count = 0</span>
+<span style="color: #888888"># interp. the total number of trials that we used to get a VOLUME as close as a TOTAL_AMNT</span>
+count <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+
+<span style="color: #888888"># CODE</span>
+
+<span style="color: #008800; font-weight: bold">for</span> _ <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(EPOCHS):
+    count <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+    lomold <span style="color: #333333">=</span> []
+    vol <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+
+    <span style="color: #008800; font-weight: bold">while</span> vol <span style="color: #333333">&lt;</span> ta <span style="color: #000000; font-weight: bold">and</span> count <span style="color: #333333">&lt;=</span> ITERATIONS:
+        candidate <span style="color: #333333">=</span> random<span style="color: #333333">.</span>choice(avalMold)
+        <span style="color: #008800; font-weight: bold">if</span> candidate[<span style="background-color: #fff0f0">&quot;VOLUME&quot;</span>]<span style="color: #333333">+</span>vol <span style="color: #333333">&lt;=</span> ta:
+            lomold<span style="color: #333333">.</span>append(candidate)
+            vol<span style="color: #333333">+=</span> candidate[<span style="background-color: #fff0f0">&quot;VOLUME&quot;</span>]
+        count <span style="color: #333333">+=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+
+
+    <span style="color: #008800; font-weight: bold">if</span> vol <span style="color: #333333">&gt;=</span> best_vol:
+        best_vol <span style="color: #333333">=</span> vol
+        best_lomold <span style="color: #333333">=</span> lomold
+
+sortedlst <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;, &quot;</span><span style="color: #333333">.</span>join(<span style="color: #007020">sorted</span>([mold[<span style="background-color: #fff0f0">&quot;ITEM&quot;</span>] <span style="color: #008800; font-weight: bold">for</span> mold <span style="color: #000000; font-weight: bold">in</span> best_lomold]))
+<span style="color: #008800; font-weight: bold">for</span> item <span style="color: #000000; font-weight: bold">in</span> [<span style="background-color: #fff0f0">&quot;A&quot;</span>,<span style="background-color: #fff0f0">&quot;B&quot;</span>,<span style="background-color: #fff0f0">&quot;C&quot;</span>,<span style="background-color: #fff0f0">&quot;D&quot;</span>]:
+    <span style="color: #008800; font-weight: bold">print</span>(item, sortedlst<span style="color: #333333">.</span>count(item))
+</pre>
+        </div>
+
+
+    </div>
+
+</body>

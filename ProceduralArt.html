@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" text="text/css" href="./styles.css">
+    <meta charset="UTF-8">
+
+
+    <title>Procedural Art - Uriel Garcilazo Cruz</title>
+    <style>
+        .img-32 {
+            border-top: 4px solid ivory;
+            border-right: 2px solid ivory;
+            border-bottom: 4px solid ivory;
+            border-left: 2px solid ivory;
+            margin: 5px;
+        }
+    </style>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V9043QSBQP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-V9043QSBQP');
+    </script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div>
+        <nav class="navbar navbar-expand-md navbar-dark colorize pt-1 pt-2">
+            <a class="navbar-brand img-fluid" href="./index.html">
+                <img src="./Images/HomeIcon.png" style="width: 120px; padding: 1.2rem;" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-sm-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <!-- <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a> -->
+                        <a class="nav-link nav--text" href="./tutorials.html" style="color: white;">Tutorials</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a> -->
+                        <a class="nav-link nav--text" href="./ProceduralArt.html" style="color: white;">Procedural
+                            Art</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav--text" href="./outreach.html" style="color: white;">Outreach</a>
+                    </li>
+                    <!-- A special type of dropdown item -->
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="./teaching.html" style="color: white;"
+                            id="navbarDropdown" role="button" data-toggle="dropdown">
+                            Teaching
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="teachingUBC.html"
+                                style="color: white; background-color: rgb(12, 12, 11);" target="_blank">Genetics at
+                                UBC</a>
+                            <div class="dropdown-divider" style="background-color: white; height: 2px;"></div>
+                            <a class="dropdown-item" href="teachingCode.html" style="color: white;"
+                                target="_blank">Coding for kids</a>
+                            <a class="dropdown-item" href="teachingSTEM.html" style="color: white;" target="_blank">STEM
+                                for kids</a> -->
+                    <li class="nav-item">
+                        <a class="nav-link nav--text" href="./teachingUBC.html" style="color: white;">Teaching</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav--text" href="./GameDesign.html" style="color: white;">Game Design</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav--text" href="./microptics.html" style="color: white;">Microscopy</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
+    <!-- Main Text -->
+    <div>
+        <div class="row d-flex justify-content-right">
+            <div class="col-12 d-flex justify-content-right p-3">
+                <h1 style="text-align: right; font-size: 4rem; padding-right: 1rem;">
+                    Procedural Art
+                </h1>
+                <img src="./Images/Games/character.gif" class="img-fluid"
+                    style="width: 4rem; height: 4rem; transform: translateY(20%); border: 0px" alt="Me.png">
+            </div>
+        </div>
+
+        <section class="mainCenterTxt--black" style="margin: 1rem 0 1rem 0; padding: 1rem; font-size: 1.3rem;">
+            <p>
+                Computers provide quite an interesting way to creating art. It's a form of mixing the precision of a
+                logical system with the inestability of the human mind, expressed in the form of an algorithm.
+            </p>
+            <p>
+                Procedural art is, in general terms, a form of digital or computer-generated art created using
+                algorithms, computer programs, or systematic processes to generate images, animations, or other visual
+                or auditory elements. It is a type of generative art where the artist defines a set of rules or
+                procedures that dictate how the artwork should be generated, but the actual outcome can be unpredictable
+                or vary each time the program is run.
+            </p>
+        </section>
+    </div>
+    <hr>
+    <h1 class="p-4" style="text-align: center;">Procedural Art</h1>
+    <hr>
+    <div class="container-fluid mainCenterTxt--black p-4">
+        <!--Grid row-->
+        <div class="row">
+
+            <!--Grid column-->
+            <div class="col-lg-4 col-md-12 mb-4">
+
+                <img src="./Procedural_Art/spiderWeb.gif" class="img-fluid mb-4" alt="">
+
+                <img src="./Procedural_Art/Mitosis.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.3s">
+                <img src="./Procedural_Art/diamonds.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.3s">
+                <img src="./Procedural_Art/Lissajous.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.3s">
+                <img src="./Procedural_Art/ConwaysGOL.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.5s">
+                <img src="./Procedural_Art/Bobbly.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.5s">
+                <img src="./Procedural_Art/GravitySimulator.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.5s">
+                <img src="./Procedural_Art/RandomSnowflake.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.5s">
+                <img src="./Procedural_Art/triangularGrid.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.5s">
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-4 col-md-6 mb-4">
+
+                <img src="./Procedural_Art/VectorFieldsI.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.1s">
+
+                <img src="./Procedural_Art/BubbleSort.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.4s">
+
+                <img src="./Procedural_Art/Poki.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.4s">
+                <img src="./Procedural_Art/PerlinNoiseI.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.4s">
+                <img src="./Procedural_Art/ParticleLife.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.4s">
+                <img src="./Procedural_Art/Clock.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.5s">
+                <img src="./Procedural_Art/HilbertsCurve.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.5s">
+                <img src="./Procedural_Art/RayMarching.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.5s">
+
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-4 col-md-6 mb-4">
+
+                <img src="./Procedural_Art/PerlinNoiseII.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.4s">
+
+                <img src="./Procedural_Art/Snowflakes.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.5s">
+                <img src="./Procedural_Art/Yoshi.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.5s">
+                <img src="./Procedural_Art/Pendulum.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.5s">
+                <img src="./Procedural_Art/BeeHive.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.5s">
+                <img src="./Procedural_Art/GelatinMan.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.5s">
+                <img src="./Procedural_Art/NatureFractal.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.5s">
+                <img src="./Procedural_Art/colors.gif" class="img-fluid mb-4" alt="" data-wow-delay="0.5s">
+            </div>
+            <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+    </div>
+
+    <hr>
+    <h1 class="p-4" style="text-align: center;">Portrait and Landscape digital Art</h1>
+    <hr>
+    <div class="container-fluid mainCenterTxt--black p-4">
+        <!--Grid row-->
+        <div class="row">
+
+            <!--Grid column-->
+            <div class="col-lg-4 col-md-12 mb-4">
+
+                <img src="./Images/img_6_Vancouver_Agulla.jpg" class="img-fluid mb-4" alt="">
+
+                <img src="./Images/img_7_Artpiece_FV_2.JPG" class="img-fluid mb-4" alt="" data-wow-delay="0.3s">
+                <img src="./Images/img_12_spider_forest.JPG" class="img-fluid mb-4" alt="" data-wow-delay="0.3s">
+                <img src="./Images/img_17_board_game_V2.png" class="img-fluid mb-4" alt="" data-wow-delay="0.3s">
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-4 col-md-6 mb-4">
+
+                <img src="./Images/img_3.png" class="img-fluid mb-4" alt="" data-wow-delay="0.1s">
+
+                <img src="./Images/img_4.png" class="img-fluid mb-4" alt="" data-wow-delay="0.4s">
+
+                <img src="./Images/img_8_Aurorastrip_V2.jpg" class="img-fluid mb-4" alt="" data-wow-delay="0.4s">
+                <img src="./Images/img_15_Anapidae.png" class="img-fluid mb-4" alt="" data-wow-delay="0.4s">
+
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-4 col-md-6 mb-4">
+
+                <img src="./Images/img_14.png" class="img-fluid mb-4" alt="" data-wow-delay="0.2s">
+
+                <img src="./Images/img_9_Penguin_peel.JPG" class="img-fluid mb-4" alt="" data-wow-delay="0.5s">
+                <img src="./Images/img_11_spider.JPG" class="img-fluid mb-4" alt="" data-wow-delay="0.5s">
+                <img src="./Images/img_1.png" class="img-fluid mb-4" alt="" data-wow-delay="0.5s">
+                <img src="./Images/img_16_Phoroncidia.png" class="img-fluid mb-4" alt="" data-wow-delay="0.5s">
+            </div>
+            <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+    </div>
+    <hr>
+    <h1 class="p-4" style="text-align: center;">16 and 32 pixel art</h1>
+    <hr>
+    <div class="container-fluid mainCenterTxt--black p-4">
+        <hr class="mb-5 style-two" />
+        <!--Grid row-->
+        <div class="row">
+            <div class="col-lg-2 col-md-4 col-sm-12 p-0 m-0">
+                <img src="./Images/Games/Allothrombium_UGC_V1.png" class="img-fluid mb-4 img-32"
+                    alt="Allothrombium_UGC_V1.png">
+                <img src="./Images/Games/Amphipod.png" class="img-fluid mb-4 img-32" alt="Amphipod.png">
+                <img src="./Images/Games/chestnut_checkedee_V1.png" class="img-fluid mb-4 img-32"
+                    alt="chestnut_checkedee_V1.png">
+                <img src="./Images/Games/Chlorosea_banksaria_V1.png" class="img-fluid mb-4 img-32"
+                    alt="Chlorosea_banksaria_V1.png">
+
+
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-12 p-0 m-0">
+                <img src="./Images/Games/Entomobrya_triangularis_V1.png" class="img-fluid mb-4 img-32"
+                    alt="Entomobrya_triangularis_V1.png">
+                <img src="./Images/Games/Eupeodes_fumipennis_V1.png" class="img-fluid mb-4 img-32"
+                    alt="Eupeodes_fumipennis_V1.png">
+                <img src="./Images/Games/FawnLily.png" class="img-fluid mb-4 img-32" alt="FawnLily.png">
+                <img src="./Images/Games/redBeetle.png" class="img-fluid mb-4 img-32" alt="redBeetle.png">
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-12 p-0 m-0">
+                <img src="./Images/Games/Orca.png" class="img-fluid mb-4 img-32" alt="Orca.png">
+                <img src="./Images/Games/Ortholeptura_valida_V1.png" class="img-fluid mb-4 img-32"
+                    alt="Ortholeptura_valida_V1.png">
+                <img src="./Images/Games/Otiorhynchus_rugosostriatus_V1.png" class="img-fluid mb-4 img-32"
+                    alt="Otiorhynchus_rugosostriatus_V1.png">
+                <img src="./Images/Games/Raccoon.png" class="img-fluid mb-4 img-32" alt="Raccoon.png">
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-12 p-0 m-0">
+                <img src="./Images/Games/Salticus_scenicus_V1.png" class="img-fluid mb-4 img-32"
+                    alt="Salticus_scenicus_V1.png">
+                <img src="./Images/Games/Scaphinotus_angusticollis.png" class="img-fluid mb-4 img-32"
+                    alt="Scaphinotus_angusticollis.png">
+                <img src="./Images/Games/Segestria_pacifica_V1.png" class="img-fluid mb-4 img-32"
+                    alt="Segestria_pacifica_V1.png">
+                <img src="./Images/Games/Arbutus.png" class="img-fluid mb-4 img-32"
+                    alt="Arbutus.png">
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-sm-12 p-0 m-0">
+                <img src="./Images/Games/Dryobates_villosus_V1.png" class="img-fluid mb-4 img-32"
+                    alt="Dryobates_villosus_V1.png">
+                <img src="./Images/Games/Ranaaurora_V1.png" class="img-fluid mb-4 img-32" alt="Ranaaurora_V1.png">
+                <img src="./Images/Games/Licius.png" class="img-fluid mb-4 img-32" alt="Licius.png">
+                <img src="./Images/Games/Rubus_ursinus.png" class="img-fluid mb-4 img-32" alt="RubusUrsinus.png">
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-12">
+                <img src="./Images/Games/Troglodytes pacificus_V1.png" class="img-fluid mb-4 img-32"
+                    alt="Troglodytes pacificus_V1.png">
+                <img src="./Images/Games/RumorsPosts.png" class="img-fluid mb-4 img-32" alt="RumorsPosts.png">
+                <img src="./Images/Games/Myrmecophilus_oregonensis_V1.png" class="img-fluid mb-4 img-32"
+                    alt="Myrmecophilus_oregonensis_V1.png">
+                <img src="./Images/Games/Elasmucha_lateralis_V1.png" class="img-fluid mb-4 img-32"
+                    alt="Elasmucha_lateralis_V1.png">
+            </div>
+
+            <!--Grid row-->
+
+        </div>
+    </div>
+    <hr>
+    <h1 class="p-4" style="text-align: center;">Pencil Drawings</h1>
+    <hr>
+    <div class="container-fluid mainCenterTxt--black p-4">
+        <hr class="mb-5 style-two" />
+        <!--Grid row-->
+        <div class="row">
+            <div class="col-lg-4 col-md-12 mb-4">
+                <img src="./Images/Drawings/Eagle.jpg" class="img-fluid mb-4" alt="">
+                <img src="./Images/Drawings/BoyAndWWatermelon.jpg" class="img-fluid mb-4" alt="">
+
+            </div>
+            <div class="col-lg-4 col-md-12 mb-4">
+                <img src="./Images/Drawings/Homeless.jpg" class="img-fluid mb-4" alt="">
+                <img src="./Images/Drawings/Woman.jpg" class="img-fluid mb-4" alt="">
+
+            </div>
+            <div class="col-lg-4 col-md-12 mb-4">
+                <img src="./Images/Drawings/Mother_Daughter.jpg" class="img-fluid mb-4" alt="">
+                <img src="./Images/Drawings/Puppy.jpg" class="img-fluid mb-4" alt="">
+            </div>
+            <!--Grid row-->
+        </div>
+    </div>
+
+
+        <!-- Scripts required by Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" text="text/css" href="../styles.css">
+    <meta charset="UTF-8">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V9043QSBQP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-V9043QSBQP');
+    </script>
+    <title>1_Optimization algorithms: Dynamic Programming</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div>
+        <nav class="navbar navbar-expand-md navbar-dark colorize pt-1 pt-2">
+            <a class="navbar-brand img-fluid" href="./index.html">
+                <img src="./Images/HomeIcon.png" style="width: 120px; padding: 1.2rem;" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-sm-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <!-- <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a> -->
+                        <a class="nav-link nav--text" href="./WedDesign.html" style="color: white;">Web design</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a> -->
+                        <a class="nav-link nav--text" href="./portfolio.html" style="color: white;">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav--text" href="./outreach.html" style="color: white;">Outreach</a>
+                    </li>
+                    <!-- A special type of dropdown item -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="./teaching.html" style="color: white;"
+                            id="navbarDropdown" role="button" data-toggle="dropdown">
+                            Teaching
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="teachingUBC.html"
+                                style="color: white; background-color: rgb(12, 12, 11);" target="_blank">Genetics at
+                                UBC</a>
+                            <div class="dropdown-divider" style="background-color: white; height: 2px;"></div>
+                            <a class="dropdown-item" href="teachingCode.html" style="color: white;"
+                                target="_blank">Coding for kids</a>
+                            <a class="dropdown-item" href="teachingSTEM.html" style="color: white;" target="_blank">STEM
+                                for kids</a>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav--text" href="./microptics.html" style="color: white;">Microptics</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container-fluid p-3 pb-0 pt-0">
+
+
+        <div class="mainCenterTxt--black p-4">
+            <h2>Optimization algorithms</h2>
+            It's called optimization the process of iterating over a landscape of possible solutions to find the best
+            one. One form of classifying these algorithms relies on its capacity to search throughout all possibilities:
+            <br><br>
+            <ul>
+                <li>Exhaustive: find the best global solution by looking into every possible result</li>
+                <li>Heuristic: finds the "best so far" solution by systematically navigating the landscape of possible
+                    results</li>
+            </ul>
+
+            Let's look at one important example of exhaustive search in python
+
+            <br><br><br>
+
+            <!-- 1. Exhaustive search -->
+            <p>
+                <hr>
+            <h2>Dynamic Programming</h2>
+            <hr>
+            In simple terms, all the information an organism requires to regulate and replicate itself is located in the
+            DNA. The DNA is represented by the combination of four nucleic acids that are usually referred to as: <br>
+            <div style="text-align: center; font-size: 1.5em;">[A,T,G,C]</div>
+            <div>
+                the combination of multiple letters is called a <strong>sequence</strong>. A DNA sequence can span from
+                a couple of nucleotides to the entire genome. Two versions of the same gene, found in different (but
+                related) organisms
+                have to first be aligned. <strong>Alignment is the process of overlapping two or more sequences</strong>
+                arguing that two
+                sequences that look more like each other than to any other sequence potentially represent the same
+                genetic information in both organisms.
+            </div>
+
+            <div>
+                Let's take a look at the following two sequences:
+                <!-- HTML generated using hilite.me -->
+                <div
+                    style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                    <pre style="margin: 0; line-height: 125%"><span style="color: #888888"># DD. SEQUENCE</span>
+<span style="color: #888888"># seq = str</span>
+<span style="color: #888888"># interp. a string of characters representing nucleotides</span>
+seq0 <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;TCCATCACCCTGGGCTGGCGGCGTGTGGCTATGGGGACGCTGGGCAGGGCTGGCCAGGAGGATGGCTGAGACACTGGAGTCCCAGCAGGCACGCGTCACCCCTGGCACATCCCCAGGCAGTGGGACTCCCTGTCCCCAGTTCCTCAGCATCCTCTCGGCCTTGCCATCAGGCGCTGCGGGAGCGCTGGCAGGGTGGGCTGGGGGCCTGGGGAATCTACGGGCACTGCAAGGGGCCCCGGGGGCTCAGCCCCCAGCTGGGGGGGGCCTGGGGTTGAGGTGGGGGCCATGTCGACGCTGGCCCCCCTGCGCCTGCTGCGCAAGCCCTGGAACACCAGTGAGGGCAACCAGAGCAACACCACGGCCGGGGCCGGCGGCCCCTGGTGCCAGGGGCTCAACATCCCCAACGAGCTCTTCCTCACGCTGGGGCTGGTGAGCCTGGTGGAGAACCTGCTGGTGGTGGCTGCCATCCTGAAGAACAGGAACCTGCACTCGCCCACGTACTACTTCATCTGCTGCCTGGCCATCTCCGACATGCTGGTGAGCGTCAGCAACCTGGTGGAGACGCTCTTCATGCTGCTGATGGAGCACGGTGTGCTGGTGATCCACGCCAGCATCGTCCGCCACATGGATAACGTCATCGACATGCTCATCTGCAGCTCCATCGTGTCCTCCCTTTCCTTCCTGGGGGTCATTGCTGTGGACCGCTACATCACCATCTTCTACGCCCTGCGCTACCACAACATCATGACGCTGCAACGGGCTGTGGTGACCATGGCCAGTGTCTGGCTGGCCAGCACCGTCTCCAGCACCATCTTCATCACCTACTACCACAATAACGCCATCCTCCTCTGCCTCATCGGCTTCTTCCTCTTTGTGCTGGTCCTCATGCTGGTGCTCTACATCCACATGTTCATCCTGTCCCGCCACCACCTCTGCAGCATCTCCAGCCAGCAGAAGCAGCCCACCATCTACTGCAGCAGCAGCCTGAAGGGAACCATCACGCTCACCATCCTCCTGGGAGTCTTCTTCATCTGCTGGGGGCCCTTCTTCTTCCACCTCATCCTCATCGTCACCTGCCCCACAAACCCCTTCTGCACCTGCTTCTTCAGCTACTTCAACCTCTTCTTCATC&quot;</span> 
+seq1 <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;GAGCAACACCACGGCCGGGGCCGGCGGCCCCTGGTGCCAGGGGCTCAACATCCCCAACGAGCTCTTCCTCACGCTGGGGCTGGTGAGCCTGGTGGAGAACCTGCTGGTGGTGGCTGCCATCCTGAAGAACAGGAACCTGCACTCGCCCACGTACTACTTCATCTGCTGCCTGGCCATCTCCGACATGCTGGTGAGCGTCAGCAACCTGGTGGAGACGCTCTTCATGCTGCTGATGGAGCACGGTGTGCTGGTGATCCACGCCAGCATCGTCCGCCACATGGATAACGTCATCGACATGCTCATCTGCAGCTCCATCGTGTCCTCCCTTTCCTTCCTGGGGGTCATTGCTGTGGACCGCTACATCACCATCTTCTACGCCCTGCGCTACCACAACATCATGACGCTGCAACGGGCTGTGGTGACCATGGCCAGTGTCTGGCTGGCCAGCACCGTCTCCAGCACCATCTTCATCACCTACTACCACAATAACGCCATCCTCCTCTGCCTCATCGGCTTCTTCCTCTTTGTGCTGGTCCTCATGCTGGTGCTCTACATCCACATGTTCATCCTGTCCCGCCACCACCTCTGCAGCATCTCCAGCCAGCAGAAGCAGCCCACCATCTACTGCAGCAGCAGCCTGAAGGGAACCATCACGCTCACCATCCTCCTGGGACTCTTCTTCATCTGCTGGGGGCCCTTCTTCTTCCACCTCATCCTCATCGTCACCTGCCCCACAAACCCCTTCTGCACCTGCTTCTTCAGCTACTTCAACCTCTTCTTCATCCTCATCATCTGCAACTCGGTGGTCAACCCCCTC&quot;</span>
+                </pre>
+                </div>
+            </div>
+
+            <div>
+                Notice that the length of the sequences is not the same. The goal of the dynamic programming
+                algorithm is to find the best possible combination of letters in order to maximize a score. To achieve
+                this, it is permitted to add gaps in between spaces. Gaps represent assumptions on missing data, and
+                should be penalized. However, they are necessary to move the entire sequence to the right from a
+                starting point; the position where the gap is inserted. We also have to penalize those positions that
+                don't share the same letters. <br><br>
+                The best alignment is the one which <strong>maximizes the number of letters that are the same while
+                    minimizing the number of mismatches and missing data</strong>
+            </div>
+            <div>Look at the aligned version of the previous sequence: </div>
+            <div>
+                <pre
+                    style="font-size:1em; background:#ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+__TCCA_TCACCCTGGGCTGGCGGC_GTGTGGCTATGGGGACGCTGGGCAGGGCTGGCC_AG_GAGGATGGCTGAG_ACACTGGAGTCCCAGCAGGCAC_GCGTCA_CCCCTGGCACATCCCCAGGCAG_TGGGACTCCCTGTC_CC_CA_GTTCCTCAGCA_T_CCTCTCGGCCTTGCCATCAGGCGCTGCGGGAGCGCTGGCAGGGTGGGCT_GGGGGCCTGGGGAATCTACGGGCACTG_CAAGGGGCCCCGGGGGCTCAGC_CCCCAGCTGGGGGGGGC_CTGGGGTTGAGGTGGGGGCCATGTCGACGCTGGCCCCCCTGCGCCTGCTGCGCAAGCCCTGGAACACCAGTGAGGGCAACCAGAGCAACACCACGGCCGGGGCCGGCGGCCCCTGGTGCCAGGGGCTCAACATCCCCAACGAGCTCTTCCTCACGCTGGGGCTGGTGAGCCTGGTGGAGAACCTGCTGGTGGTGGCTGCCATCCTGAAGAACAGGAACCTGCACTCGCCCACGTACTACTTCATCTGCTGCCTGGCCATCTCCGACATGCTGGTGAGCGTCAGCAACCTGGTGGAGACGCTCTTCATGCTGCTGATGGAGCACGGTGTGCTGGTGATCCACGCCAGCATCGTCCGCCACATGGATAACGTCATCGACATGCTCATCTGCAGCTCCATCGTGTCCTCCCTTTCCTTCCTGGGGGTCATTGCTGTGGACCGCTACATCACCATCTTCTACGCCCTGCGCTACCACAACATCATGACGCTGCAACGGGCTGTGGTGACCATGGCCAGTGTCTGGCTGGCCAGCACCGTCTCCAGCACCATCTTCATCACCTACTACCACAATAACGCCATCCTCCTCTGCCTCATCGGCTTCTTCCTCTTTGTGCTGGTCCTCATGCTGGTGCTCTACATCCACATGTTCATCCTGTCCCGCCACCACCTCTGCAGCATCTCCAGCCAGCAGAAGCAGCCCACCATCTACTGCAGCAGCAGCCTGAAGGGAACCATCACGCTCACCATCCTCCTGGGAGT_CTTCTTCATCTGCTGGGGGCCCTTCTTCTTCCACCTCATCCTCATCGTCACCTGCCCCACAAACCCCTTCTGCACCTGCTTCTTCAGCTACTTCAACCTCTTCTTCATC_________________________________
+GAGC_AAC_ACC__A__C_GGC___CG_G_GG_________C_C_GG_CGG__CC__CCTG_G_____TG_CCAG_GG_G______C___________TC_____AAC_______AT__CCCCAA_CGAG_____CTCTTC___C_TC_ACGCT____GG_GGCT______GGT___G__A__G_____________C_CTGGTGGAG_AA_CCTG____CT_GG____T__G_G__TG___G_______CT__G____CC_A_TC_________________C_____________________TG_________A_______A_______________________________________________________________________________________________________________________________________________________________________GAACAGGAACCTGCACTCGCCCACGTACTACTTCATCTGCTGCCTGGCCATCTCCGACATGCTGGTGAGCGTCAGCAACCTGGTGGAGACGCTCTTCATGCTGCTGATGGAGCACGGTGTGCTGGTGATCCACGCCAGCATCGTCCGCCACATGGATAACGTCATCGACATGCTCATCTGCAGCTCCATCGTGTCCTCCCTTTCCTTCCTGGGGGTCATTGCTGTGGACCGCTACATCACCATCTTCTACGCCCTGCGCTACCACAACATCATGACGCTGCAACGGGCTGTGGTGACCATGGCCAGTGTCTGGCTGGCCAGCACCGTCTCCAGCACCATCTTCATCACCTACTACCACAATAACGCCATCCTCCTCTGCCTCATCGGCTTCTTCCTCTTTGTGCTGGTCCTCATGCTGGTGCTCTACATCCACATGTTCATCCTGTCCCGCCACCACCTCTGCAGCATCTCCAGCCAGCAGAAGCAGCCCACCATCTACTGCAGCAGCAGCCTGAAGGGAACCATCACGCTCACCATCCTCCTGGGA_CTCTTCTTCATCTGCTGGGGGCCCTTCTTCTTCCACCTCATCCTCATCGTCACCTGCCCCACAAACCCCTTCTGCACCTGCTTCTTCAGCTACTTCAACCTCTTCTTCATCCTCATCATCTGCAACTCGGTGGTCAACCCCCTC
+                </pre>
+            </div>
+            <div>
+                There is something quite pleasing on looking at the sorted data this way, don't you agree? Here is the
+                <strong>information</strong> that we need to implement our algorithm:
+            </div><br>
+            <div>
+                <div style="margin-bottom: 2em;">
+                    <hr>
+                    <h2>The parameters for the algorithm are:</h2>
+                    <li><strong>PENALIZING_COSTS</strong>: dictionary - determines the penalty on gaps and mismatches of
+                        letters</li>
+                    <li><strong>SEQUENCE_0</strong>: string - the first sample used for the alignment. Its letters
+                        occupy the columns in the matrix</li>
+                    <li><strong>SEQUENCE_1</strong>: string - the second sample used for the alignment: Its letters
+                        occupy the rows in the matrix</li>
+                    <li><strong>SCORE_MATRIX</strong>: [[int, ..., n=len(sequence0)] , ..., n=len(sequence1)] - a 2D
+                        array of numbers representing all the possible combinations of letters between the sequences
+                    </li>
+                </div>
+
+                <!-- python snippet with the parameters for the algorithm -->
+                <div>
+                    <!-- HTML generated using hilite.me -->
+                    <div
+                        style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                        <pre style="margin: 0; line-height: 125%"><span style="color: #888888"># DD. PENALIZING_COSTS</span>
+<span style="color: #888888"># penalizingCostOf = {&quot;TRANSITION&quot;:int, &quot;TRANSVERSION&quot;:int,&quot;MATCH&quot;:0, &quot;GAP&quot;:int}</span>
+<span style="color: #888888"># interp. a summary of the penalizing costs for the comparison between nucleotides in a sequence alignment</span>
+penalizingCostOf <span style="color: #333333">=</span> {<span style="background-color: #fff0f0">&quot;TRANSITION&quot;</span>:<span style="color: #0000DD; font-weight: bold">1</span>, <span style="background-color: #fff0f0">&quot;TRANSVERSION&quot;</span>:<span style="color: #0000DD; font-weight: bold">3</span>,<span style="background-color: #fff0f0">&quot;MATCH&quot;</span>:<span style="color: #0000DD; font-weight: bold">0</span>, <span style="background-color: #fff0f0">&quot;GAP&quot;</span>:<span style="color: #0000DD; font-weight: bold">2</span>}
+    
+    
+<span style="color: #888888"># DD. SEQUENCE</span>
+<span style="color: #888888"># seq = str</span>
+<span style="color: #888888"># interp. a string of characters representing nucleotides</span>
+seq0 <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;TCCATCACCCTGGGCTGGCGGCGTGTGGCTATGGGGACGCTGGGCAGGGCTGGCCAGGAGGATGGCTGAGACACTGGAGTCCCAGCAGGCACGCGTCACCCCTGGCACATCCCCAGGCAGTGGGACTCCCTGTCCCCAGTTCCTCAGCATCCTCTCGGCCTTGCCATCAGGCGCTGCGGGAGCGCTGGCAGGGTGGGCTGGGGGCCTGGGGAATCTACGGGCACTGCAAGGGGCCCCGGGGGCTCAGCCCCCAGCTGGGGGGGGCCTGGGGTTGAGGTGGGGGCCATGTCGACGCTGGCCCCCCTGCGCCTGCTGCGCAAGCCCTGGAACACCAGTGAGGGCAACCAGAGCAACACCACGGCCGGGGCCGGCGGCCCCTGGTGCCAGGGGCTCAACATCCCCAACGAGCTCTTCCTCACGCTGGGGCTGGTGAGCCTGGTGGAGAACCTGCTGGTGGTGGCTGCCATCCTGAAGAACAGGAACCTGCACTCGCCCACGTACTACTTCATCTGCTGCCTGGCCATCTCCGACATGCTGGTGAGCGTCAGCAACCTGGTGGAGACGCTCTTCATGCTGCTGATGGAGCACGGTGTGCTGGTGATCCACGCCAGCATCGTCCGCCACATGGATAACGTCATCGACATGCTCATCTGCAGCTCCATCGTGTCCTCCCTTTCCTTCCTGGGGGTCATTGCTGTGGACCGCTACATCACCATCTTCTACGCCCTGCGCTACCACAACATCATGACGCTGCAACGGGCTGTGGTGACCATGGCCAGTGTCTGGCTGGCCAGCACCGTCTCCAGCACCATCTTCATCACCTACTACCACAATAACGCCATCCTCCTCTGCCTCATCGGCTTCTTCCTCTTTGTGCTGGTCCTCATGCTGGTGCTCTACATCCACATGTTCATCCTGTCCCGCCACCACCTCTGCAGCATCTCCAGCCAGCAGAAGCAGCCCACCATCTACTGCAGCAGCAGCCTGAAGGGAACCATCACGCTCACCATCCTCCTGGGAGTCTTCTTCATCTGCTGGGGGCCCTTCTTCTTCCACCTCATCCTCATCGTCACCTGCCCCACAAACCCCTTCTGCACCTGCTTCTTCAGCTACTTCAACCTCTTCTTCATC&quot;</span>  <span style="color: #888888">#sequence in the columns</span>
+seq1 <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;GAGCAACACCACGGCCGGGGCCGGCGGCCCCTGGTGCCAGGGGCTCAACATCCCCAACGAGCTCTTCCTCACGCTGGGGCTGGTGAGCCTGGTGGAGAACCTGCTGGTGGTGGCTGCCATCCTGAAGAACAGGAACCTGCACTCGCCCACGTACTACTTCATCTGCTGCCTGGCCATCTCCGACATGCTGGTGAGCGTCAGCAACCTGGTGGAGACGCTCTTCATGCTGCTGATGGAGCACGGTGTGCTGGTGATCCACGCCAGCATCGTCCGCCACATGGATAACGTCATCGACATGCTCATCTGCAGCTCCATCGTGTCCTCCCTTTCCTTCCTGGGGGTCATTGCTGTGGACCGCTACATCACCATCTTCTACGCCCTGCGCTACCACAACATCATGACGCTGCAACGGGCTGTGGTGACCATGGCCAGTGTCTGGCTGGCCAGCACCGTCTCCAGCACCATCTTCATCACCTACTACCACAATAACGCCATCCTCCTCTGCCTCATCGGCTTCTTCCTCTTTGTGCTGGTCCTCATGCTGGTGCTCTACATCCACATGTTCATCCTGTCCCGCCACCACCTCTGCAGCATCTCCAGCCAGCAGAAGCAGCCCACCATCTACTGCAGCAGCAGCCTGAAGGGAACCATCACGCTCACCATCCTCCTGGGACTCTTCTTCATCTGCTGGGGGCCCTTCTTCTTCCACCTCATCCTCATCGTCACCTGCCCCACAAACCCCTTCTGCACCTGCTTCTTCAGCTACTTCAACCTCTTCTTCATCCTCATCATCTGCAACTCGGTGGTCAACCCCCTC&quot;</span>  <span style="color: #888888">#sequence on the rows</span>
+    
+<span style="color: #888888"># DD. MATRIX</span>
+<span style="color: #888888"># matrix = [[int, ..., len(SEQUENCE1)], ..., len(SEQUENCE2)]</span>
+<span style="color: #888888"># interp. a matrix made from two sequences compared against each other</span>
+matrix <span style="color: #333333">=</span> [[<span style="color: #0000DD; font-weight: bold">0</span> <span style="color: #008800; font-weight: bold">for</span> n2 <span style="color: #000000; font-weight: bold">in</span> seq1] <span style="color: #008800; font-weight: bold">for</span> n1 <span style="color: #000000; font-weight: bold">in</span> seq0]
+    
+<span style="color: #888888"># TEMPLATE FOR MATRIX</span>
+<span style="color: #888888"># for row in matrix:</span>
+<span style="color: #888888">#   for pt in row:</span>
+<span style="color: #888888">#       ... pt</span>
+</pre>
+                    </div>
+
+                </div>
+
+
+                <div>
+                    <h2>The Algorithm</h2>
+                    <li>Generate and populate SCORE_MATRIX, comparing letters</li>
+                    <ul>
+                        <li>For every cell:</li>
+                        <ul>
+                            <li>Evaluate the cost of inserting a gap in SEQUENCE_0</li>
+                            <li>Evaluate the cost of inserting a gap in SEQUENCE_1</li>
+                            <li>Evaluate the cost of keeping the letters in their current configuration</li>
+                            <li>keep the max score</li>
+                        </ul>
+                        <li>With the SCORE_MATRIX populated, traverse the matrix backwards</li>
+                        <ul>
+                            <li>invert the SCORE_MATRIX, the sequence0 and the sequence1</li>
+                            <li>while the index of rows (y) and columns (x) in the SCORE_MATRIX_REVERSED are still in
+                                range of their sequences</li>
+                            <ul>
+                                <li>Generate a list containing the MINIMUM_SCORES</li>
+                                <li>Add the score to the right (x+1) to list MINIMUM_SCORES</li>
+                                <li>Add the score below (y+1) to list MINIMUM_SCORES</li>
+                                <li>Add the score diagonal (x+1,y+1) to list MINIMUM_SCORES</li>
+                                <li>pick the index of the minimum score in the list MINIMUM_SCORES</li>
+                                <li>Is the minimum score at index 0? T: It must be right. Increase x+1 and add a _ to
+                                    SEQUENCE_0, while adding the letter at index x to SEQUENCE_1</li>
+                                <li>Is the minimum score at index 1? T: It must be below. Increase y+1 and add a _ to
+                                    SEQUENCE_1, while adding the letter at index y to SEQUENCE_0</li>
+                                <li>Otherwise: It must be diagonal. Increase x+1 and y+1 and add the nucleotide at index
+                                    x to SEQUENCE_1, and nucleotide at index y to SEQUENCE_0</li>
+
+                            </ul>
+                        </ul>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div style="margin-bottom: 2em;">
+                Looking at our algorithm this way can be tricky, even boring. I invite you to look at the following
+                video, hoping it
+                helps clarifying the logic behind the implementation!
+                <div style="text-align: center; margin-top: 2em;"><iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/2fvK0eG7Pes" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe></div>
+
+            </div>
+
+            <div>
+                Let's work through the implementation together!
+                <div style="text-align: center; margin-top: 2em;"><iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/znfe99t0l94" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe></div>
+
+            </div>
+            <div style="margin-top: 2em;">
+                <!-- HTML generated using hilite.me -->
+                <div
+                    style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                    <pre style="margin: 0; line-height: 125%"><span style="color: #888888"># DATA DEFS</span>
+
+<span style="color: #888888"># DD. TRANSITIONS</span>
+
+<span style="color: #888888"># DD. PENALIZING_COSTS</span>
+<span style="color: #888888"># penalizingCostOf = {&quot;TRANSITION&quot;:int, &quot;TRANSVERSION&quot;:int,&quot;MATCH&quot;:0, &quot;GAP&quot;:int}</span>
+<span style="color: #888888"># interp. a summary of the penalizing costs for the comparison between nucleotides in a sequence alignment</span>
+penalizingCostOf <span style="color: #333333">=</span> {<span style="background-color: #fff0f0">&quot;TRANSITION&quot;</span>: <span style="color: #0000DD; font-weight: bold">1</span>, <span style="background-color: #fff0f0">&quot;TRANSVERSION&quot;</span>: <span style="color: #0000DD; font-weight: bold">3</span>, <span style="background-color: #fff0f0">&quot;MATCH&quot;</span>: <span style="color: #0000DD; font-weight: bold">0</span>, <span style="background-color: #fff0f0">&quot;GAP&quot;</span>: <span style="color: #0000DD; font-weight: bold">2</span>}
+
+<span style="color: #888888"># DD. SEQUENCE</span>
+<span style="color: #888888"># seq = str</span>
+<span style="color: #888888"># interp. a string of characters representing nucleotides</span>
+seq0 <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;TCCATCACCCTGGGCTGGCGGCGTGTGGCTATGGGGACGCTGGGCAGGGCTGGCCAGGAGGATGGCTGAGACACTGGAGTCCCAGCAGGCACGCGTCACCCCTGGCACATCCCCAGGCAGTGGGACTCCCTGTCCCCAGTTCCTCAGCATCCTCTCGGCCTTGCCATCAGGCGCTGCGGGAGCGCTGGCAGGGTGGGCTGGGGGCCTGGGGAATCTACGGGCACTGCAAGGGGCCCCGGGGGCTCAGCCCCCAGCTGGGGGGGGCCTGGGGTTGAGGTGGGGGCCATGTCGACGCTGGCCCCCCTGCGCCTGCTGCGCAAGCCCTGGAACACCAGTGAGGGCAACCAGAGCAACACCACGGCCGGGGCCGGCGGCCCCTGGTGCCAGGGGCTCAACATCCCCAACGAGCTCTTCCTCACGCTGGGGCTGGTGAGCCTGGTGGAGAACCTGCTGGTGGTGGCTGCCATCCTGAAGAACAGGAACCTGCACTCGCCCACGTACTACTTCATCTGCTGCCTGGCCATCTCCGACATGCTGGTGAGCGTCAGCAACCTGGTGGAGACGCTCTTCATGCTGCTGATGGAGCACGGTGTGCTGGTGATCCACGCCAGCATCGTCCGCCACATGGATAACGTCATCGACATGCTCATCTGCAGCTCCATCGTGTCCTCCCTTTCCTTCCTGGGGGTCATTGCTGTGGACCGCTACATCACCATCTTCTACGCCCTGCGCTACCACAACATCATGACGCTGCAACGGGCTGTGGTGACCATGGCCAGTGTCTGGCTGGCCAGCACCGTCTCCAGCACCATCTTCATCACCTACTACCACAATAACGCCATCCTCCTCTGCCTCATCGGCTTCTTCCTCTTTGTGCTGGTCCTCATGCTGGTGCTCTACATCCACATGTTCATCCTGTCCCGCCACCACCTCTGCAGCATCTCCAGCCAGCAGAAGCAGCCCACCATCTACTGCAGCAGCAGCCTGAAGGGAACCATCACGCTCACCATCCTCCTGGGAGTCTTCTTCATCTGCTGGGGGCCCTTCTTCTTCCACCTCATCCTCATCGTCACCTGCCCCACAAACCCCTTCTGCACCTGCTTCTTCAGCTACTTCAACCTCTTCTTCATC&quot;</span>  <span style="color: #888888">#sequence in the column</span>
+seq1 <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;GAGCAACACCACGGCCGGGGCCGGCGGCCCCTGGTGCCAGGGGCTCAACATCCCCAACGAGCTCTTCCTCACGCTGGGGCTGGTGAGCCTGGTGGAGAACCTGCTGGTGGTGGCTGCCATCCTGAAGAACAGGAACCTGCACTCGCCCACGTACTACTTCATCTGCTGCCTGGCCATCTCCGACATGCTGGTGAGCGTCAGCAACCTGGTGGAGACGCTCTTCATGCTGCTGATGGAGCACGGTGTGCTGGTGATCCACGCCAGCATCGTCCGCCACATGGATAACGTCATCGACATGCTCATCTGCAGCTCCATCGTGTCCTCCCTTTCCTTCCTGGGGGTCATTGCTGTGGACCGCTACATCACCATCTTCTACGCCCTGCGCTACCACAACATCATGACGCTGCAACGGGCTGTGGTGACCATGGCCAGTGTCTGGCTGGCCAGCACCGTCTCCAGCACCATCTTCATCACCTACTACCACAATAACGCCATCCTCCTCTGCCTCATCGGCTTCTTCCTCTTTGTGCTGGTCCTCATGCTGGTGCTCTACATCCACATGTTCATCCTGTCCCGCCACCACCTCTGCAGCATCTCCAGCCAGCAGAAGCAGCCCACCATCTACTGCAGCAGCAGCCTGAAGGGAACCATCACGCTCACCATCCTCCTGGGACTCTTCTTCATCTGCTGGGGGCCCTTCTTCTTCCACCTCATCCTCATCGTCACCTGCCCCACAAACCCCTTCTGCACCTGCTTCTTCAGCTACTTCAACCTCTTCTTCATCCTCATCATCTGCAACTCGGTGGTCAACCCCCTC&quot;</span>  <span style="color: #888888">#sequence on the top</span>
+
+<span style="color: #888888"># DD. MATRIX</span>
+<span style="color: #888888"># matrix = [[int, ..., len(SEQUENCE1)], ..., len(SEQUENCE2)]</span>
+<span style="color: #888888"># interp. a matrix made from two sequences compared against each other</span>
+matrix <span style="color: #333333">=</span> [[<span style="color: #0000DD; font-weight: bold">0</span> <span style="color: #008800; font-weight: bold">for</span> n2 <span style="color: #000000; font-weight: bold">in</span> seq1] <span style="color: #008800; font-weight: bold">for</span> n1 <span style="color: #000000; font-weight: bold">in</span> seq0]
+
+<span style="color: #888888"># TEMPLATE FOR MATRIX</span>
+<span style="color: #888888"># for row in matrix:</span>
+<span style="color: #888888">#   for pt in row:</span>
+<span style="color: #888888">#       ... pt</span>
+
+<span style="color: #888888"># CODE</span>
+
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">evaluateTransTransv</span>(s1, s2):
+  nm <span style="color: #333333">=</span> [[<span style="background-color: #fff0f0">&quot;A&quot;</span>, <span style="background-color: #fff0f0">&quot;G&quot;</span>], [<span style="background-color: #fff0f0">&quot;C&quot;</span>, <span style="background-color: #fff0f0">&quot;T&quot;</span>]]
+
+  <span style="color: #008800; font-weight: bold">for</span> nt <span style="color: #000000; font-weight: bold">in</span> nm:
+    <span style="color: #008800; font-weight: bold">if</span> s1 <span style="color: #000000; font-weight: bold">in</span> nt <span style="color: #000000; font-weight: bold">and</span> s2 <span style="color: #000000; font-weight: bold">in</span> nt:
+      <span style="color: #008800; font-weight: bold">return</span> penalizingCostOf[<span style="background-color: #fff0f0">&quot;TRANSITION&quot;</span>]
+  <span style="color: #008800; font-weight: bold">return</span> penalizingCostOf[<span style="background-color: #fff0f0">&quot;TRANSVERSION&quot;</span>]
+
+
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">evaluate</span>(x, y, <span style="color: #007020">dir</span>):
+  <span style="color: #888888"># coming from left (l)</span>
+  <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">dir</span> <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;l&quot;</span>:
+    <span style="color: #008800; font-weight: bold">return</span> matrix[y][x <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>] <span style="color: #333333">-</span> penalizingCostOf[<span style="background-color: #fff0f0">&quot;GAP&quot;</span>]
+  <span style="color: #888888"># coming from top (t)</span>
+  <span style="color: #008800; font-weight: bold">elif</span> <span style="color: #007020">dir</span> <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;t&quot;</span>:
+    <span style="color: #008800; font-weight: bold">return</span> matrix[y <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>][x] <span style="color: #333333">-</span> penalizingCostOf[<span style="background-color: #fff0f0">&quot;GAP&quot;</span>]
+  <span style="color: #888888"># coming from diagonal (d)</span>
+  <span style="color: #008800; font-weight: bold">else</span>:
+    <span style="color: #008800; font-weight: bold">if</span> seq0[y] <span style="color: #333333">==</span> seq1[x]:
+      <span style="color: #008800; font-weight: bold">return</span> matrix[y <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>][x <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>] <span style="color: #333333">-</span> penalizingCostOf[<span style="background-color: #fff0f0">&quot;MATCH&quot;</span>]
+    <span style="color: #008800; font-weight: bold">else</span>:
+      <span style="color: #008800; font-weight: bold">return</span> matrix[y <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>][x <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>] <span style="color: #333333">-</span> evaluateTransTransv(seq0[y], seq1[x])
+
+
+<span style="color: #008800; font-weight: bold">for</span> y, row <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">enumerate</span>(matrix):
+  <span style="color: #008800; font-weight: bold">for</span> x, pt <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">enumerate</span>(row):
+    score <span style="color: #333333">=</span> <span style="color: #007020">None</span>
+    <span style="color: #888888"># point at origin is 0</span>
+    <span style="color: #008800; font-weight: bold">if</span> y <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span> <span style="color: #000000; font-weight: bold">and</span> x <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>:
+      score <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+    <span style="color: #888888"># points in the top edge can come from left</span>
+    <span style="color: #008800; font-weight: bold">elif</span> y <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>:
+      score <span style="color: #333333">=</span> evaluate(x, y, <span style="background-color: #fff0f0">&quot;l&quot;</span>)
+    <span style="color: #888888"># points in the left edge can come from top</span>
+    <span style="color: #008800; font-weight: bold">elif</span> x <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>:
+      score <span style="color: #333333">=</span> evaluate(x, y, <span style="background-color: #fff0f0">&quot;t&quot;</span>)
+    <span style="color: #888888"># other points can come from left, top, diagonal</span>
+    <span style="color: #008800; font-weight: bold">else</span>:
+      scores <span style="color: #333333">=</span> []
+      <span style="color: #888888"># left (gap insertion)   0</span>
+      scores<span style="color: #333333">.</span>append(evaluate(x, y, <span style="background-color: #fff0f0">&quot;l&quot;</span>))
+      <span style="color: #888888"># top (gap insertion)    1</span>
+      scores<span style="color: #333333">.</span>append(evaluate(x, y, <span style="background-color: #fff0f0">&quot;t&quot;</span>))
+      <span style="color: #888888"># diagonal               2</span>
+      scores<span style="color: #333333">.</span>append(evaluate(x, y, <span style="background-color: #fff0f0">&quot;d&quot;</span>))
+      score <span style="color: #333333">=</span> <span style="color: #007020">max</span>(scores)
+    matrix[y][x] <span style="color: #333333">=</span> score
+
+seq0_aligned <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span>
+seq1_aligned <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span>
+revSeq0 <span style="color: #333333">=</span> <span style="color: #007020">str</span>(seq0[::<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>])
+revSeq1 <span style="color: #333333">=</span> <span style="color: #007020">str</span>(seq1[::<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>])
+revMatrix <span style="color: #333333">=</span> [row[::<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>] <span style="color: #008800; font-weight: bold">for</span> row <span style="color: #000000; font-weight: bold">in</span> matrix[::<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>]]
+
+y <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+x <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+<span style="color: #008800; font-weight: bold">while</span> y<span style="color: #333333">&lt;</span><span style="color: #007020">len</span>(revMatrix) <span style="color: #000000; font-weight: bold">and</span> x<span style="color: #333333">&lt;</span><span style="color: #007020">len</span>(revMatrix[<span style="color: #0000DD; font-weight: bold">0</span>]):
+  <span style="color: #888888"># if last row and last column, keep the letters</span>
+  <span style="color: #008800; font-weight: bold">if</span> y <span style="color: #333333">==</span> <span style="color: #007020">len</span>(matrix)<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #000000; font-weight: bold">and</span> x <span style="color: #333333">==</span> <span style="color: #007020">len</span>(matrix)<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>:
+    seq0_aligned <span style="color: #333333">+=</span> revSeq0[y]
+    seq1_aligned <span style="color: #333333">+=</span> revSeq1[x]
+    x <span style="color: #333333">+=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+    y <span style="color: #333333">+=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+  <span style="color: #888888"># if last row we can only go right in the inverse matrix.</span>
+  <span style="color: #008800; font-weight: bold">elif</span> y <span style="color: #333333">==</span> <span style="color: #007020">len</span>(matrix)<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>:
+    <span style="color: #888888"># add insertion to revSeq0</span>
+    seq0_aligned <span style="color: #333333">+=</span> <span style="background-color: #fff0f0">&quot;_&quot;</span>
+    <span style="color: #888888"># add nucleotide to revSeq1</span>
+    seq1_aligned <span style="color: #333333">+=</span> revSeq1[x]
+    <span style="color: #888888"># update x</span>
+    x <span style="color: #333333">+=</span><span style="color: #0000DD; font-weight: bold">1</span>
+  <span style="color: #888888"># if last column, check only down in the inverse matrix</span>
+  <span style="color: #008800; font-weight: bold">elif</span> x <span style="color: #333333">==</span> <span style="color: #007020">len</span>(row)<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>:
+    <span style="color: #888888"># add nucleotide to revSeq0</span>
+    seq0_aligned <span style="color: #333333">+=</span> revSeq0[y]
+    <span style="color: #888888"># add insertion to revSeq1</span>
+    seq1_aligned <span style="color: #333333">+=</span> <span style="background-color: #fff0f0">&quot;_&quot;</span>
+    <span style="color: #888888"># update y</span>
+    y <span style="color: #333333">+=</span><span style="color: #0000DD; font-weight: bold">1</span>
+  
+  <span style="color: #888888"># otherwise evaluate right, diagonal, down</span>
+  <span style="color: #008800; font-weight: bold">else</span>:
+    max_scores <span style="color: #333333">=</span> []
+    max_scores<span style="color: #333333">.</span>append(revMatrix[y][x<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>]) 
+    max_scores<span style="color: #333333">.</span>append(revMatrix[y<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>][x]) 
+    max_scores<span style="color: #333333">.</span>append(revMatrix[y<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>][x<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>])
+    idx_minScore <span style="color: #333333">=</span> max_scores<span style="color: #333333">.</span>index(<span style="color: #007020">max</span>(max_scores))
+
+    <span style="color: #888888"># case 1. going right</span>
+    <span style="color: #008800; font-weight: bold">if</span> idx_minScore <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>:
+      <span style="color: #888888"># add insertion to revSeq0</span>
+      seq0_aligned <span style="color: #333333">+=</span> <span style="background-color: #fff0f0">&quot;_&quot;</span>
+      <span style="color: #888888"># add nucleotide to revSeq1</span>
+      seq1_aligned <span style="color: #333333">+=</span> revSeq1[x]
+      <span style="color: #888888"># update x</span>
+      x <span style="color: #333333">+=</span><span style="color: #0000DD; font-weight: bold">1</span>
+
+    <span style="color: #888888"># case 2. going down</span>
+    <span style="color: #008800; font-weight: bold">elif</span> idx_minScore <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">1</span>:
+      <span style="color: #888888"># add nucleotide to revSeq0</span>
+      seq0_aligned <span style="color: #333333">+=</span> revSeq0[y]
+      <span style="color: #888888"># add insertion to revSeq1</span>
+      seq1_aligned <span style="color: #333333">+=</span> <span style="background-color: #fff0f0">&quot;_&quot;</span>
+      <span style="color: #888888"># update y</span>
+      y <span style="color: #333333">+=</span><span style="color: #0000DD; font-weight: bold">1</span>
+    <span style="color: #888888"># case 3. going diagonal</span>
+    <span style="color: #008800; font-weight: bold">else</span>:
+      <span style="color: #888888"># add nucleotide to revSeq0</span>
+      seq0_aligned <span style="color: #333333">+=</span> revSeq0[y]
+      <span style="color: #888888"># add nucleotide to revSeq1</span>
+      seq1_aligned <span style="color: #333333">+=</span> revSeq1[x]
+      <span style="color: #888888"># update x and y</span>
+      x <span style="color: #333333">+=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+      y <span style="color: #333333">+=</span><span style="color: #0000DD; font-weight: bold">1</span>
+
+seq0_aligned <span style="color: #333333">=</span> seq0_aligned[::<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>]
+seq1_aligned <span style="color: #333333">=</span> seq1_aligned[::<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>]
+<span style="color: #008800; font-weight: bold">print</span>(seq0_aligned)
+<span style="color: #008800; font-weight: bold">print</span>(seq1_aligned)
+</pre>
+                </div>
+
+            </div>
+
+
+
+            </p>
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+</body>
