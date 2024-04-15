@@ -37,277 +37,271 @@
 </head>
 
 <body>
-    <!-- Navbar -->
-    <div>
-        <nav class="navbar navbar-expand-md navbar-dark colorize pt-1 pt-2">
-            <a class="navbar-brand img-fluid" href="./index.html">
-                <img src="./Images/HomeIcon.png" style="width: 120px; padding: 1.2rem;" alt="">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse justify-content-sm-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <!-- <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a> -->
-                        <a class="nav-link nav--text" href="./tutorials.html" style="color: white;">Tutorials</a>
-                    </li>
-                    <li class="nav-item">
-                        <!-- <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a> -->
-                        <a class="nav-link nav--text" href="./ProceduralArt.html" style="color: white;">Procedural
-                            Art</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav--text" href="./outreach.html" style="color: white;">Outreach</a>
-                    </li>
-                    <!-- A special type of dropdown item -->
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="./teaching.html" style="color: white;"
-                            id="navbarDropdown" role="button" data-toggle="dropdown">
-                            Teaching
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="teachingUBC.html"
-                                style="color: white; background-color: rgb(12, 12, 11);" target="_blank">Genetics at
-                                UBC</a>
-                            <div class="dropdown-divider" style="background-color: white; height: 2px;"></div>
-                            <a class="dropdown-item" href="teachingCode.html" style="color: white;"
-                                target="_blank">Coding for kids</a>
-                            <a class="dropdown-item" href="teachingSTEM.html" style="color: white;" target="_blank">STEM
-                                for kids</a> -->
-                    <li class="nav-item">
-                        <a class="nav-link nav--text" href="./teachingUBC.html" style="color: white;">Teaching</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav--text" href="./GameDesign.html" style="color: white;">Game Design</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav--text" href="./microptics.html" style="color: white;">Microscopy</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+    <div class="background-image" style="background-image: url('./Images/navBarBackground_Tutorials.gif');height: 85vh">
     </div>
-
+    <!-- Navbar -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- For jQuery use in navbar and footer-->
+    <div id="navbarJQ"></div>
+    <script>
+        $("#navbarJQ").load("/navbar.html");
+    </script>
+    <div style="padding-top: 70vh;"></div>
 
     <!-- Main Text -->
-    <div>
-        <div class="row d-flex justify-content-right">
-            <div class="col-12 d-flex justify-content-right p-3">
-                <h1 style="text-align: right; font-size: 4rem; padding-right: 1rem;">
-                    Game Design
-                </h1>
-                <img src="./Images/Games/character.gif" class="img-fluid"
-                    style="width: 4rem; height: 4rem; transform: translateY(20%); border: 0px" alt="Me.png">
+    <section class="mb-3 mt-3 p-1 pt-5 hidden content-BoxGCU">
+        <div class="row align-items-center hidden content-BoxGCU mb-5" style="background-color: rgb(45,45,45);">
+            <div class="col">
+                <hr>
+                <h2 class="" style="text-align: left;"></h2>
+                <hr>
+                <p >
+                    The following catalog displays most of my production games, sorted chronologically. Some of these
+                    titles were made available
+                    using services like STEAM and Google Play. Additional game-like resources specialized on education
+                    and science can be found in the <a href="./EducationResources.html" class="link"
+                        target="_blank">Education Resources</a> section of this website.
+                </p>
             </div>
         </div>
 
-        <section class="mainCenterTxt--black" style="margin: 1rem 0 1rem 0; padding: 1rem; font-size: 1.3rem;">
-            <p>
-                My father passed away a this year. His favourite games were from the SEGA Genesis and NES, with titles
-                like Gain Ground and some simple titles like Baseball. When we played together, I felt connected with
-                him in a way that I didn't know it was possible, making me feel emotionally connected to him while
-                having some friendly competition.
-                Videogames made possible for me to connect with my father many times, and that's how I learned to love
-                videogames. During my last trip to Mexico, and one of the last times I saw my father, we found our old
-                NES console while cleaning his room and we spent the late evening playing his favourite game of
-                Baseball.
-            </p>
-        </section>
-    </div>
+    </section>
 
-    <hr>
-    <h1 class="p-4" style="text-align: center;">Santa's Village</h1>
-    <hr>
-    <div class="container-fluid mainCenterTxt--black p-4">
-        <div class="row">
-            <div class="col-lg-6 mb-4" style="text-align: center;">
-                <img src="./Images/GameSanta.png" alt="">
-            </div>
-            <div class="col-lg-6 mb-4" style="text-align: left; align-items: center; display: flex;">
-                <div class="row">
-                    <div class="col-12 mb-4" style="text-align: left; align-items: center; display: flex;">
-                        Feel the Christmas spirit at Santa Claus' village at the North Pole with these 5 mini-games.
-                    </div>
-                    <div class="col-12 mb-4" style="text-align: center; font-size: 1.5em;">
-                        Available <a href="./gameSanta/index.html">Here</a>
-                    </div>
+    <!-- Main Text -->
+    <section class="mb-3 mt-3 p-5 hidden content-BoxGCU">
+        <hr>
+        <h1 class="p-2" style="text-align: center;">Santa's Village</h1>
+        <h3 class="p-2" style="text-align: center;">Mini-Games</h3>
+        <hr>
+        <div class="container-fluid mainCenterTxt--black p-4">
+            <div class="row">
+                <div class="col-lg-6 mb-4" style="text-align: center;">
+                    <img src="./Images/GameSanta.png" alt="">
                 </div>
-
-            </div>
-        </div>
-    </div>
-
-    <hr>
-    <h1 class="p-4" style="text-align: center;">Gardens of Caprona</h1>
-    <hr>
-    <div class="container-fluid mainCenterTxt--black p-4">
-        <div class="row">
-            <div class="col-lg-6 mb-4" style="text-align: center;">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/gIO1NJhkcA4?si=VHKvsEXZSLwILKMd"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
-            </div>
-            <div class="col-lg-6 mb-4" style="text-align: left; align-items: center; display: flex;">
-                <div class="row">
-                    <div class="col-12 mb-4" style="text-align: left; align-items: center; display: flex;">
-                        Join a crew of scientists and explore the biodiversity of a new world in this single-player,
-                        alien farming simulator. Plant new species from your inventory to gather income and invite new
-                        creatures to visit your garden. The unique combination of items you decide to plant will
-                        determine which creatures you encounter. Expand your inventory and acquire new seeds to
-                        cultivate in your garden. As you attract more species, a cascade of biological interactions that
-                        include predation and mating will be revealed. Gather resources and discover the full spectrum
-                        of species thriving in the world of Caprona!
+                <div class="col-lg-6 mb-4" style="text-align: left; align-items: center; display: flex;">
+                    <div class="row">
+                        <div class="col-12 mb-4" style="text-align: left; align-items: center; display: flex;">
+                            Feel the Christmas spirit at Santa Claus' village at the North Pole with these 5 mini-games.
+                        </div>
+                        <div class="col-12 mb-4" style="text-align: center; font-size: 1.5em;">
+                            Available <a href="./gameSanta/index.html">Here</a>
+                        </div>
                     </div>
-                    <div class="col-12 mb-4" style="text-align: center; font-size: 1.5em;">
-                        <!-- Available on <a href="https://store.steampowered.com/app/2533330/Artificia_Armata/">Steam</a> -->
-                    </div>
+
                 </div>
-
             </div>
         </div>
-    </div>
 
+    </section>
 
-    <hr>
-    <h1 class="p-4" style="text-align: center;">Artificia Armata</h1>
-    <hr>
-    <div class="container-fluid mainCenterTxt--black p-4">
-        <div class="row">
-            <div class="col-lg-6 mb-4" style="text-align: center;">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/thMdnLtdK0o?si=0brTptUB67kZD701"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
-            </div>
-            <div class="col-lg-6 mb-4" style="text-align: left; align-items: center; display: flex;">
-                <div class="row">
-                    <div class="col-12 mb-4" style="text-align: left; align-items: center; display: flex;">
-                        Welcome to the resistance! We live in a dystopic world where humanity is threatened by the very
-                        same
-                        machines that we built to protect us. Make your way through waves of enemies in this
-                        single-player,
-                        top-down tower defense game, defeating a final boss for each level. Upgrade your defense
-                        weaponry, and survive
-                        the 9 levels that lead to the Articia Armada system.
-                    </div>
-                    <div class="col-12 mb-4" style="text-align: center; font-size: 1.5em;">
-                        Available on <a href="https://store.steampowered.com/app/2533330/Artificia_Armata/">Steam</a>
-                    </div>
+    <section class="mb-3 mt-3 p-5 hidden content-BoxGCU">
+        <hr>
+        <h1 class="p-2" style="text-align: center;">Gardens of Caprona</h1>
+        <h3 class="p-2" style="text-align: center;">Farming Simulator</h3>
+        <hr>
+        <div class="container-fluid mainCenterTxt--black p-4">
+            <div class="row">
+                <div class="col-lg-6 mb-4" style="text-align: center;">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/gIO1NJhkcA4?si=VHKvsEXZSLwILKMd"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
                 </div>
-
-            </div>
-        </div>
-    </div>
-
-    <hr>
-    <h1 class="p-4" style="text-align: center;">Evolution in Action</h1>
-    <hr>
-    <div class="container-fluid mainCenterTxt--black p-4">
-        <div class="row">
-            <div class="col-lg-6 mb-4" style="text-align: center;">
-                <img src="./Images/EvolutionInAction.png" alt="">
-            </div>
-            <div class="col-lg-6 mb-4" style="text-align: left; align-items: center; display: flex;">
-                <div class="row">
-                    <div class="col-12 mb-4" style="text-align: left; align-items: center; display: flex;">
-                        Meet the pinks. These cute herbivore creatures made their home in the leaf litter of oak trees.
-                        In this endless simulator you take the role of a predator. Catch as many pinks as you can before
-                        10 seconds have passed. You will notice that over a couple of generations your population of
-                        pinks will change in appearance, speed and size. Your preferences as a predator will determine
-                        the
-                        ultimate fate of these lovable creatures through the process known as evolution.
+                <div class="col-lg-6 mb-4" style="text-align: left; align-items: center; display: flex;">
+                    <div class="row">
+                        <div class="col-12 mb-4" style="text-align: left; align-items: center; display: flex;">
+                            Join a crew of scientists and explore the biodiversity of a new world in this single-player,
+                            alien farming simulator. Plant new species from your inventory to gather income and invite
+                            new
+                            creatures to visit your garden. The unique combination of items you decide to plant will
+                            determine which creatures you encounter. Expand your inventory and acquire new seeds to
+                            cultivate in your garden. As you attract more species, a cascade of biological interactions
+                            that
+                            include predation and mating will be revealed. Gather resources and discover the full
+                            spectrum
+                            of species thriving in the world of Caprona!
+                        </div>
+                        <div class="col-12 mb-4" style="text-align: center; font-size: 1.5em;">
+                            <!-- Available on <a href="https://store.steampowered.com/app/2533330/Artificia_Armata/">Steam</a> -->
+                        </div>
                     </div>
-                    <div class="col-12 mb-4" style="text-align: center; font-size: 1.5em;">
-                        Available on <a href="https://keatsisland-conservation.com/EvolutionInAction/">Keats Island
-                            Conservation</a>
-                    </div>
+
                 </div>
-
             </div>
         </div>
-    </div>
+
+    </section>
 
 
-    <hr>
-    <h1 class="p-4" style="text-align: center;">Chronicles of Keats Island</h1>
-    <hr>
-    <div class="container-fluid mainCenterTxt--black p-4">
-        <div class="row">
-            <div class="col-lg-6 mb-4" style="text-align: center;">
-                <img src="./Images/ChroniclesKeats.png" alt="">
-            </div>
-            <div class="col-lg-6 mb-4" style="text-align: left; align-items: center; display: flex;">
-                <div class="row">
-                    <div class="col-12 mb-4" style="text-align: left; align-items: center; display: flex;">
-                        In this educational, role player game based on Keats Island children learn the values
-                        of nature and the importance of conservation. Hyllus, a nature enthusiast decides to travel
-                        across Canada to visit Keats Island, a place filled with many unique species of plants and
-                        animals. But
-                        something is not right, and some unexpected events put in motion a race to save the island from
-                        destruction, caused by plastic pollution, logging and the introduction of invasive species to
-                        the island.
-                    </div>
-                    <div class="col-12 mb-4" style="text-align: center; font-size: 1.5em;">
-                        Available on <a
-                            href="https://keatsisland-conservation.com/ChroniclesKeatsIsland/index.html">Keats Island
-                            Conservation</a>
-                    </div>
+    <section class="mb-3 mt-3 p-5 hidden content-BoxGCU">
+        <hr>
+        <h1 class="p-2" style="text-align: center;">Artificia Armata</h1>
+        <h3 class="p-2" style="text-align: center;">Tower Defense</h3>
+        <hr>
+        <div class="container-fluid mainCenterTxt--black p-4">
+            <div class="row">
+                <div class="col-lg-6 mb-4" style="text-align: center;">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/thMdnLtdK0o?si=0brTptUB67kZD701"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
                 </div>
-
-            </div>
-        </div>
-    </div>
-
-
-    <hr>
-    <h1 class="p-4" style="text-align: center;">Chess</h1>
-    <hr>
-    <div class="container-fluid mainCenterTxt--black p-4">
-        <div class="row">
-            <div class="col-lg-6 mb-4" style="text-align: center;">
-                <img src="./Images/chess.png" alt="">
-            </div>
-            <div class="col-lg-6 mb-4" style="text-align: left; align-items: center; display: flex;">
-                <div class="row">
-                    <div class="col-12 mb-4" style="text-align: left; align-items: center; display: flex;">
-                        A classic game of chess, implemented in pygame and python.
+                <div class="col-lg-6 mb-4" style="text-align: left; align-items: center; display: flex;">
+                    <div class="row">
+                        <div class="col-12 mb-4" style="text-align: left; align-items: center; display: flex;">
+                            Welcome to the resistance! We live in a dystopic world where humanity is threatened by the
+                            very
+                            same
+                            machines that we built to protect us. Make your way through waves of enemies in this
+                            single-player,
+                            top-down tower defense game, defeating a final boss for each level. Upgrade your defense
+                            weaponry, and survive
+                            the 9 levels that lead to the Articia Armada system.
+                        </div>
+                        <div class="col-12 mb-4" style="text-align: center; font-size: 1.5em;">
+                            Available on <a
+                                href="https://store.steampowered.com/app/2533330/Artificia_Armata/">Steam</a>
+                        </div>
                     </div>
-                    <div class="col-12 mb-4" style="text-align: center; font-size: 1.5em;">
-                        Available on <a href="https://urielgarcilazo.itch.io/chess">Itch.io</a>
-                    </div>
+
                 </div>
-
             </div>
         </div>
-    </div>
+    </section>
 
-    <hr>
-    <h1 class="p-4" style="text-align: center;">Plastics in the ocean</h1>
-    <hr>
-    <div class="container-fluid mainCenterTxt--black p-4">
-        <div class="row">
-            <div class="col-lg-6 mb-4" style="text-align: center;">
-                <img src="./Images/PlasticsInTheOcean.png" alt="">
-            </div>
-            <div class="col-lg-6 mb-4" style="text-align: left; align-items: center; display: flex;">
-                <div class="row">
-                    <div class="col-12 mb-4" style="text-align: left; align-items: center; display: flex;">
-                        A simple javascript game where children can help getting rid of dangerous plastics in the ocean.
-                    </div>
-                    <div class="col-12 mb-4" style="text-align: center; font-size: 1.5em;">
-                        Available on <a href="https://keatsisland-conservation.com/Media/fishtank/fishtank.html">Keats
-                            Island Conservation</a>
-                    </div>
+    <section class="mb-3 mt-3 p-5 hidden content-BoxGCU">
+        <hr>
+        <h1 class="p-2" style="text-align: center;">Evolution in Action</h1>
+        <h3 class="p-2" style="text-align: center;">Evolution Simulator</h3>
+        <hr>
+        <div class="container-fluid mainCenterTxt--black p-4">
+            <div class="row">
+                <div class="col-lg-6 mb-4" style="text-align: center;">
+                    <img src="./Images/EvolutionInAction.png" alt="">
                 </div>
+                <div class="col-lg-6 mb-4" style="text-align: left; align-items: center; display: flex;">
+                    <div class="row">
+                        <div class="col-12 mb-4" style="text-align: left; align-items: center; display: flex;">
+                            Meet the pinks. These cute herbivore creatures made their home in the leaf litter of oak
+                            trees.
+                            In this endless simulator you take the role of a predator. Catch as many pinks as you can
+                            before
+                            10 seconds have passed. You will notice that over a couple of generations your population of
+                            pinks will change in appearance, speed and size. Your preferences as a predator will
+                            determine
+                            the
+                            ultimate fate of these lovable creatures through the process known as evolution.
+                        </div>
+                        <div class="col-12 mb-4" style="text-align: center; font-size: 1.5em;">
+                            Available on <a href="https://keatsisland-conservation.com/EvolutionInAction/">Keats Island
+                                Conservation</a>
+                        </div>
+                    </div>
 
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
+    <section class="mb-3 mt-3 p-5 hidden content-BoxGCU">
+        <hr>
+        <h1 class="p-2" style="text-align: center;">Chronicles of Keats Island</h1>
+        <h3 class="p-2" style="text-align: center;">RPG</h3>
+        <hr>
+        <div class="container-fluid mainCenterTxt--black p-4">
+            <div class="row">
+                <div class="col-lg-6 mb-4" style="text-align: center;">
+                    <img src="./Images/ChroniclesKeats.png" alt="">
+                </div>
+                <div class="col-lg-6 mb-4" style="text-align: left; align-items: center; display: flex;">
+                    <div class="row">
+                        <div class="col-12 mb-4" style="text-align: left; align-items: center; display: flex;">
+                            In this educational, role player game based on Keats Island children learn the values
+                            of nature and the importance of conservation. Hyllus, a nature enthusiast decides to travel
+                            across Canada to visit Keats Island, a place filled with many unique species of plants and
+                            animals. But
+                            something is not right, and some unexpected events put in motion a race to save the island
+                            from
+                            destruction, caused by plastic pollution, logging and the introduction of invasive species
+                            to
+                            the island.
+                        </div>
+                        <div class="col-12 mb-4" style="text-align: center; font-size: 1.5em;">
+                            Available on <a
+                                href="https://keatsisland-conservation.com/ChroniclesKeatsIsland/index.html">Keats
+                                Island
+                                Conservation</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-3 mt-3 p-5 hidden content-BoxGCU">
+        <hr>
+        <h1 class="p-2" style="text-align: center;">Chess</h1>
+        <h3 class="p-2" style="text-align: center;">Board Game</h3>
+        <hr>
+        <div class="container-fluid mainCenterTxt--black p-4">
+            <div class="row">
+                <div class="col-lg-6 mb-4" style="text-align: center;">
+                    <img src="./Images/chess.png" alt="">
+                </div>
+                <div class="col-lg-6 mb-4" style="text-align: left; align-items: center; display: flex;">
+                    <div class="row">
+                        <div class="col-12 mb-4" style="text-align: left; align-items: center; display: flex;">
+                            A classic game of chess, implemented in pygame and python.
+                        </div>
+                        <div class="col-12 mb-4" style="text-align: center; font-size: 1.5em;">
+                            Available on <a href="https://urielgarcilazo.itch.io/chess">Itch.io</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-3 mt-3 p-5 hidden content-BoxGCU">
+        <hr>
+        <h1 class="p-2" style="text-align: center;">Plastics in the ocean</h1>
+        <h3 class="p-2" style="text-align: center;">Hidden-Object-Puzzle</h3>
+        <hr>
+        <div class="container-fluid mainCenterTxt--black p-4">
+            <div class="row">
+                <div class="col-lg-6 mb-4" style="text-align: center;">
+                    <img src="./Images/PlasticsInTheOcean.png" alt="">
+                </div>
+                <div class="col-lg-6 mb-4" style="text-align: left; align-items: center; display: flex;">
+                    <div class="row">
+                        <div class="col-12 mb-4" style="text-align: left; align-items: center; display: flex;">
+                            A simple javascript game where children can help getting rid of dangerous plastics in the
+                            ocean.
+                        </div>
+                        <div class="col-12 mb-4" style="text-align: center; font-size: 1.5em;">
+                            Available on <a
+                                href="https://keatsisland-conservation.com/Media/fishtank/fishtank.html">Keats
+                                Island Conservation</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- FOOTER -->
+    <div id="footerJQ"></div>
+    <script>
+        $("#footerJQ").load("../footer.html");
+    </script>
+    <script defer src="../app.js"></script>
 
     <!-- Scripts required by Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" text="text/css" href="./styles.css">
+    <meta charset="UTF-8">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V9043QSBQP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-V9043QSBQP');
+    </script>
+    <title>Biology</title>
+</head>
+
+<body>
+    <div class="background-image" style="background-image: url('./Images/krill.gif');height: 65vh"></div>
+    <!-- Navbar -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- For jQuery use in navbar and footer-->
+    <div id="navbarJQ"></div>
+    <script>
+        $("#navbarJQ").load("navbar.html");
+    </script>
+    <div style="padding-top: 65vh;"></div>
+
+    <section class="container mb-5 p-5 content-BoxGCU">
+        <div class="row align-items-center hidden content-BoxGCU mb-5" style="background-color: rgb(45,45,45);">
+            <div class="col-6 hidden">
+                <hr>
+                <a class="link" href="./microptics.html">
+                    <h2 class="" style="text-align: left;">Microscopy</h2>
+                </a>
+                <hr>
+                <p>
+                    Photo Microscopy is a great way to document biodiversity almost anywhere you are. After acquiring my
+                    first microscope I decided to take advantage of the most recent technologies in imaging and 4K video
+                    without breaking the bank, using modified GoPros and a Raspberry Pi.
+                </p>
+            </div>
+            <div class="col-6 hidden">
+                <a href="./microptics.html">
+                    <img src="./Images/Microptics_000_GoPro_Raspberry_adapter_Olympus.jpg" alt="What are spiders?"
+                        class="img-fluid">
+                </a>
+            </div>
+        </div>
+
+        <div class="row align-items-center hidden content-BoxGCU mb-5" style="background-color: rgb(50,50,50);">
+            <div class="col-6">
+                <a href="https://keatsisland-conservation.com/">
+                    <img src="./Images/KeatsIslandConservation.png" alt="STEM story telling" class="img-fluid">
+                </a>
+            </div>
+            <div class="col-6">
+                <hr>
+                <a class="link" href="https://keatsisland-conservation.com/">
+                    <h2 class="" style="text-align: left;">Keats Island Conservation Society</h2>
+                </a>
+                <hr>
+                <p>
+                    As one of the directors of the Keats Island Conservation Society, I continuously maintain and
+                    promote the
+                    communication of our organization with other entities of Vancouver's Sunshine Coast, by serving as
+                    their main graphic designer and the media administrator of our webpage. The Society was
+                    founded to progress in our understanding and conservation of the island's Biodiversity.
+                </p>
+            </div>
+        </div>
+        <div class="row align-items-center hidden content-BoxGCU mb-5" style="background-color: rgb(60,60,60);">
+            <div class="col-6">
+                <hr>
+                <a class="link" target="_blank" href="https://scholar.google.ca/citations?user=36FaCHMAAAAJ&hl=en">
+                    <h2 class="" style="text-align: left;">Research <img class="img-fluid"
+                            src="./Images/Scholar_small.png" alt="Google Scholar"></h2>
+                    <h5>(Opens Google Scholar)</h5>
+                </a>
+                <hr>
+                <p>
+                    The main focus of my research for the past decade has been the taxonomy of arthropods with emphasis
+                    in arachnids.
+                    I have also assisted in the development of software dedicated to enhance the process of species
+                    desciptions with the program PYOINV.
+
+                </p>
+            </div>
+            <div class="col-6">
+                <a target="_blank" href="https://scholar.google.ca/citations?user=36FaCHMAAAAJ&hl=en">
+                    <img src="./Images/Research_Maeota.png" alt="Research plate Maeota species description"
+                        class="img-fluid">
+                </a>
+            </div>
+        </div>
+
+        <div class="row align-items-center hidden content-BoxGCU mb-5" style="background-color: rgb(60,60,60);">
+            <div class="col-6">
+                <a target="_blank" href="outreach.html">
+                    <img src="./Images/img_13_Philodromidae.JPG" alt="Research plate Maeota species description"
+                        class="img-fluid">
+                </a>
+            </div>
+            <div class="col-6">
+                <hr>
+                <a class="link" target="_blank" href="outreach.html">
+                    <h2 class="" style="text-align: left;">Outreach</h2>
+                </a>
+                <hr>
+                <p>
+                    I have assisted Museums, Biological collections, and government associations by creating digital
+                    resources and using volunteering hours to communicate Science to the general public.
+
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- FOOTER -->
+    <div id="footerJQ"></div>
+    <script>
+        $("#footerJQ").load("footer.html");
+    </script>
+
+    <!-- Scripts required by Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script defer src="app.js"></script>
+</body>
+
+</html>

@@ -13,6 +13,9 @@
     <link rel="stylesheet" text="text/css" href="./styles.css">
     <meta charset="UTF-8">
 
+
+
+    <title>Outreach</title>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-V9043QSBQP"></script>
     <script>
@@ -22,216 +25,378 @@
 
         gtag('config', 'G-V9043QSBQP');
     </script>
-    <title>Uriel -Outreach-</title>
     <style>
-        body {
-            background: rgb(20, 20, 20);
-            color: ivory;
+        /* Define animation */
+        .collapse-content {
+            transition: height 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card {
+            background-color: #3d3d3d;
+        }
+
+        .btn-custom {
+            color: #fff;
+            background-color: #d67a41;
+            border-color: #f6a776;
         }
     </style>
 </head>
 
 <body>
+    <div class="background-image" style="background-image: url('./Images/img_13_Philodromidae.JPG');height: 65vh"></div>
     <!-- Navbar -->
-    <div>
-        <nav class="navbar navbar-expand-md navbar-dark colorize pt-1 pt-2">
-            <a class="navbar-brand img-fluid" href="./index.html">
-                <img src="./Images/HomeIcon.png" style="width: 120px; padding: 1.2rem;" alt="">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- For jQuery use in navbar and footer-->
+    <div id="navbarJQ"></div>
+    <script>
+        $("#navbarJQ").load("navbar.html");
+    </script>
+    <div style="padding-top: 65vh;"></div>
 
-            <div class="collapse navbar-collapse justify-content-sm-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <!-- <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a> -->
-                        <a class="nav-link nav--text" href="./tutorials.html" style="color: white;">Tutorials</a>
-                    </li>
-                    <li class="nav-item">
-                        <!-- <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a> -->
-                        <a class="nav-link nav--text" href="./ProceduralArt.html" style="color: white;">Procedural
-                            Art</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav--text" href="./outreach.html" style="color: white;">Outreach</a>
-                    </li>
-                    <!-- A special type of dropdown item -->
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="./teaching.html" style="color: white;"
-                            id="navbarDropdown" role="button" data-toggle="dropdown">
-                            Teaching
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="teachingUBC.html"
-                                style="color: white; background-color: rgb(12, 12, 11);" target="_blank">Genetics at
-                                UBC</a>
-                            <div class="dropdown-divider" style="background-color: white; height: 2px;"></div>
-                            <a class="dropdown-item" href="teachingCode.html" style="color: white;"
-                                target="_blank">Coding for kids</a>
-                            <a class="dropdown-item" href="teachingSTEM.html" style="color: white;" target="_blank">STEM
-                                for kids</a> -->
-                    <li class="nav-item">
-                        <a class="nav-link nav--text" href="./teachingUBC.html" style="color: white;">Teaching</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav--text" href="./GameDesign.html" style="color: white;">Game Design</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav--text" href="./microptics.html" style="color: white;">Microscopy</a>
-                    </li>
-                </ul>
+    <!-- EXPEDITIONS SECTION -->
+    <section class="container mb-5 p-5 content-BoxGCU">
+        <div class="row p-3 mb-5 content-BoxGCU">
+            <div class="col-6 hidden">
+                <hr>
+                <h1>Leading expeditions to the tropics</h1>
+                <hr>
+                I organized a scientific expedition to Mexico in 2019. My team of 7 people and I were in the search of
+                very elusive
+                species of spiders new to science over the course of a month. The size of the event made necesary the
+                collaboration across
+                Universities, and gave us the opportunity to bring science to marginalized communities in the highlands
+                of Mexico. We advertised our expedition in collaboration with the Beaty Museum at the University of
+                British Columbia.
             </div>
-        </nav>
-    </div>
+            <div class="col-6 hidden">
+                <iframe width="100%" height="365" src="https://www.youtube.com/embed/tptVasWTtgc"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
 
 
-    <!-- Main text's header -->
-    <div>
-        <h1 style="text-align: right; font-size: 4rem; padding-right: 1rem;">Outreach</h1>
-    </div>
-    <!-- Main Text -->
-    <div class="container-fluid mainCenterTxt--black p-4">
-        <h1 style="margin-top: 3rem; color: rgb(255, 227, 176);">Expeditions to Mexico</h1>
-        <hr class="style-two">
-        <section>
-            <p>
-                As part of my research, I had the opportunity to coordinate and be leader of a month's expedition to Mexico, where I coordinated 
-                with local scientists, governmental entities and private landowners. We discovered more than 20 species of jumping spiders new to science during that fieldtrip.
-            </p>
-            <p class="d-flex justify-content-center">
-                <iframe width="650" height="365" src="https://www.youtube.com/embed/tptVasWTtgc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </p>
-            <p>
-                In association with the Beaty Museum, we developed a board game that teaches people about the wonders of discovering
-                new species, and we used it during our expeditions to engage public in general to the activities we were performing at their localities,
-                forming strong connections with people.
-                <p>
-                    <img src="./Images/Outreach_img1_gameTaxonomy.jpg" class="img--portfolio" style="width: 60%; display: block; margin: auto;" alt="">
-                </p>
-    
-            </p>
-        </section>
-        
-        <p>
-        <h1 style="margin-top: 3rem; color: rgb(255, 227, 176);">Let's Talk Science and STEM</h1>
-        <hr class="style-two">
-        <section>
-            I have had the opportunity to give my time to organizations that prioritize education in areas of STEM up to this date, the most relevant being Let's Talk Science.
-            <section>
-                <h2 style="text-align: center; margin: 1rem; margin-bottom: 2rem;">LTS coding club</h2>
-                <p>
-                    I think of the kids coding workshop as our main collective contribution to Let's Talk Science. A group of enthusiast programmers (myself included)
-                    from UBC joined together and developed the <a href="https://sites.google.com/view/ubcltscode/home?authuser=0">LTS coding club</a> to deliver engaging content in python to teach children from ages 8 to 16 how to code. We used a diverse repertoire
-                    of tools for the task, including python turtle, trinket, Microbits and custom scripts. It was really fun.                    
-                </p>
-                <p class="d-flex justify-content-center">
-                    
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/1QCD2sbr05k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </p>
-                <p>
-                    We hosted three main sessions between 2017 and 2018, all in association with the Vancouver School Board. The first code club happend at John Oliver Secondary Highschool
-                    for all children, as a form of afterschool workshop. Because of its success, I became coordinator of the coding club, and we hosted a second workshop at the UBC Learning Exchange Centre, a decision we made based on 
-                    how underrepresented girls were in our original workshop.
-                </p>
-                <p>
-                    
-                </p>
-                
-                
-
-            </section>
-            <section>
-                <h2 style="text-align: center; margin: 1rem; margin-bottom: 2rem;">Interviewing researchers</h2>
-                <p>
-                    I had the unique opportunity to interview and be editor of 
-                    <a href="https://letstalkscience.ca/careers/gonzalo-giribet">
-                        Dr. Gonzalo Giribet's career profile
-                    </a>
-                     in the Lets Talk Science Portal, who is currently Director of the Museum of Comparative Zoology
-                    at Harvard University, its main curator, and also an exceptional researcher.
-                </p>
-            </section>
-            <section>
-                <h2 style="text-align: center; margin: 1rem; margin-bottom: 2rem;">Attending special events</h2>
-                <p>
-                    Let's Talk Science hosted many special events at Telus Science World. I contributed by coordinating a stand teaching children
-                    about genetics by precipitating DNA from a smashed fruit and ethanol. Really fun! 
-                </p>                
-            </section>
-            <section>
-                <h2 style="text-align: center; margin: 1rem; margin-bottom: 2rem;">Teacher partnership program</h2>
-                <p>
-                    I developed special online and interactive games based on JS to remotely assist teachers' sessions during COVID-19, which I also hosted
-                    in the Keats Island Conservation Group website, for which I'm the main developer.
-                </p>
-                <p class="d-flex justify-content-center">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-12">
-                            <a class="d-flex justify-content-center" href="http://keatsisland-conservation.com/Media/DynamicHistoryPlastics/dynamicStory.html" style="height: 100%;" target="blank">
-                                <img src="./Images/Outreach_img4_OnTheBeach.png" style="display: block; width: 80%; object-fit: cover; height: 100%;" alt="">
-                            </a>
-                            
-                            
-                        </div>
-                        <div class="col-lg-6 col-md-12 d-flex justify-content-center">
-                            <a class="d-flex justify-content-center" href="http://keatsisland-conservation.com/Media/dangersplastics.html" target="blank">
-                                <img src="./Images/Outreach_img5_objects.png" style="display: block; width: 80%;" alt="">
-                            </a>
-                            
+        <!-- COLLAPSED SECTION -->
+        <div class="container mt-5">
+            <div class="row hidden">
+                <!-- Expeditions and game collapsed content -->
+                <div class="col">
+                    <div class="d-flex justify-content-center mb-3">
+                        <button class="btn btn-custom" type="button" data-toggle="collapse"
+                            data-target="#PYOINV_collapse" aria-expanded="false" aria-controls="PYOINV_collapse">
+                            Read More
+                        </button>
+                    </div>
+                    <div class="collapse collapse-content" id="PYOINV_collapse">
+                        <div class="card card-body">
+                            <!-- CONTENT of collapsed section goes here -->
+                            <div class="row p-3 mb-5 align-items-center content-BoxGCU">
+                                <div class="col-4 hidden">
+                                    <img src="./Images/img_17_board_game_V2.png" class="img-fluid img-frame" alt="">
+                                </div>
+                                <div class="col-8 hidden">
+                                    Our collaboration with the museum brought the opportunity of making a new board
+                                    game
+                                    we called
+                                    <b>Taxonomy</b>. Taxonomy is based on navigating maps while trying to flip
+                                    tokens
+                                    (representing spiders)
+                                    by rolling a dice.
+                                </div>
+                            </div>
+                            <div class="row align-items-center content-BoxGCU">
+                                <div class="col-6 hidden">
+                                    The illustrations were made using Adobe Illustrator, and the maps, height maps
+                                    and
+                                    textures generated
+                                    with the TerrainTools Add-On in Photoshop CC-2020. Two versions of the game were
+                                    created. The first one
+                                    was taken with us during the expeditions, whereas the second one is currently
+                                    deposited in the
+                                    interactive room of the Beaty Museum at the University of British Columbia.
+                                </div>
+                                <div class="col-6 hidden">
+                                    <img src="./Images/Outreach_img1_gameTaxonomy.jpg" class="img-fluid img-frame"
+                                        alt="">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    
-                </p>
-                <p>
-                    Other sessions included presenting the class a live view of marine life using my microscope and a 
-                    modified version of GoPro mounted to ElGato Camlink,
-                    casting jewels in epoxy resin, and making slime.
-                </p>
-                <p class="d-flex justify-content-center">
-                    <div class="row">
-                        <div class="col-lg-6 col-sm-12 d-flex justify-content-center">
-                            <img src="./Images/Outreach_img2_epoxy.jpg.png" style="display:block; flex: content; width: 80%; object-fit: cover; height: 100%;" alt="">
-                        </div>
-                        <div class="col-lg-6 col-sm-12 d-flex justify-content-center">
-                            <img src="./Images/Outreach_img3_microscope.png" style="display: block; flex: content; width: 80%;" alt="">
-                            
-                        </div>
-                        
-                    </div>
-                    
-                </p>
-            </section>
-            
-            
-            
-        </section>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        </p>
-        <!-- KICG -->
-        <h1 style="margin-top: 3rem; color: rgb(255, 227, 176);">Keats Island Conservation Society</h1>
-        <hr class="style-two">
-        <section>
-            A group of community members on Keats Island (BC) organized themselves to create a group of volunteers that protect
-             the environment. The group, created in 2013, was called Keats Island Conservation Society. I became a member in 2020,
-             offering services in programming.
 
-            <p>
-                <h2 style="text-align: center; margin: 1rem; margin-bottom: 2rem;">Webpage creation and maintenance</h2>
-                My main contribution to their group is in Graphic Design and Webpage maintenance.
-                I took their old webpage and gave it a fresh look by combining CSS styles with digital art of my own doing, and
-                creating engaging animations for their visitors to play with.
-            </p>
-            <p>
-                <a class="d-flex justify-content-center" href="http://keatsisland-conservation.com/AboutUs.html" target="blank">
-                    <img src="./Images/Outreach_img6_KICGWebsite.png" style="display: block; width: 70%; object-fit: cover; " alt="">                
+    <!-- PYOINV SECTION -->
+    <section class="container mb-5 p-5 content-BoxGCU ">
+        <div class="row p-3">
+            <div class="col-6 hidden align-items-center">
+                <a href="https://github.com/UGarCil/PYOINV" class="link" target="_blank">
+                    <img src="./Images/PYOINV_Workflow.png" class="img-fluid" alt="">
                 </a>
-                
-            </p>
 
-        </section>
-    </div>
+            </div>
+            <div class="col-6 hidden align-items-center">
+                <hr>
+                <h1>PYOINV 1.0</h1>
+                <hr>
+                Arthropod faunistic inventories have always been a challenge to curate and maintain due to the elevated
+                number of specimens and species that are collected. If each species is photographed, each standardized
+                image expands the amount of information to process by an entire inventory. PYOINV is a simple yet
+                powerful python version of Dr. Padilla's BIOINV software. Running on pandas and numpy, the library takes
+                an excel table containing metadata and builds a custom HTML with images, taxonomic and inventory
+                information of the specimen and species collected.
+            </div>
+        </div>
+
+        <!-- COLLAPSED SECTION -->
+        <div class="container mt-5">
+            <div class="row ">
+                <!-- Expeditions and game collapsed content -->
+                <div class="col">
+                    <div class="d-flex justify-content-center mb-3">
+                        <button class="btn btn-custom" type="button" data-toggle="collapse"
+                            data-target="#ExpeditionsCollapse" aria-expanded="false"
+                            aria-controls="ExpeditionsCollapse">
+                            Read More
+                        </button>
+                    </div>
+                    <div class="collapse collapse-content" id="ExpeditionsCollapse">
+                        <div class="card card-body">
+                            <!-- CONTENT of collapsed section goes here -->
+                            <div class="row p-3 mb-5 align-items-center content-BoxGCU">
+                                <div class="col-6 hidden">
+                                    To use PYOINV it's necesary to have python installed. You can find more information
+                                    in
+                                    the official
+                                    <a href="https://github.com/UGarCil/PYOINV" class="link" target="_blank">github
+                                        (opens
+                                        new tab)</a>
+                                    repository and the <a href="unamfcaracnolab.com" class="link"
+                                        target="_blank">official
+                                        page</a> of the
+                                    creator of the software BIOINV Dr. Fernando Alvarez Padilla.
+                                </div>
+                                <div class="col-6 hidden">
+                                    <a href="http://www.unamfcaracnolab.com/WPGS_TUXV/tuxv.html" target="_blank"><img
+                                            src="./Images/demo_PYOINV.png" class="img-fluid img-frame"
+                                            alt="screenshot PYOINV in action"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- INVENTORIES SECTION -->
+    <section class="container mb-5 p-5 content-BoxGCU ">
+        <div class="row p-3">
+            <div class="col-6 hidden align-items-center">
+                <hr>
+                <h1>INVENTORIES</h1>
+                <hr>
+                A very important step in developing an interest in biodiversity is to be able to appreciate the
+                complexity and beauty
+                of the animals and plants that live near us. Some of our most resent work has focused on unveiling the
+                diversity of Canada's West and East coast, using standardized protocols like the ones shown above, and
+                specialized naturalist websites like iNaturalist.
+            </div>
+            <div class="col-6 hidden align-items-center">
+                <img src="./Images/inaturalist_UrielGC.png" class="img-fluid" alt="">
+
+            </div>
+        </div>
+
+        <!-- COLLAPSED SECTION -->
+        <div class="container mt-5">
+            <div class="row ">
+                <!-- Expeditions and game collapsed content -->
+                <div class="col">
+                    <div class="d-flex justify-content-center mb-3">
+                        <button class="btn btn-custom" type="button" data-toggle="collapse"
+                            data-target="#InventoriesCollapse" aria-expanded="false"
+                            aria-controls="InventoriesCollapse">
+                            Read More
+                        </button>
+                    </div>
+                    <div class="collapse collapse-content" id="InventoriesCollapse">
+                        <div class="card card-body">
+                            <!-- CONTENT of collapsed section goes here -->
+                            <div class="row p-3 mb-5 align-items-center content-BoxGCU">
+                                <div class="col-6 hidden">
+                                    <a href="https://www.inaturalist.org/observations?place_id=any&user_id=urielgc&verifiable=any"
+                                        class="link" target="_blank">
+                                        <img src="./Images/inaturalist_UrielGC_2.png" class="img-fluid img-frame"
+                                            alt="screenshot PYOINV in action">
+                                    </a>
+                                </div>
+                                <div class="col-6 hidden">
+                                    Our observations using microscopy have contributed to the understanding of marine
+                                    and terrestrial arthropods. Some rare species, like the parasitic sea lice
+                                    <a href="https://eol.org/pages/340688" class="link" target="_blank"><em>Caligus
+                                            clemensi</em></a>
+                                    were described in the last 20 years.
+                                </div>
+                            </div>
+                            <!-- CONTENT of collapsed section row -->
+                            <div class="row p-3 mb-5 align-items-center content-BoxGCU">
+                                <div class="col-6 hidden">
+                                    Many of the photos and links to iNaturalist for the species identified are part of a
+                                    more inclusive <a
+                                        href="https://www.inaturalist.org/projects/biodiversity-of-keats-island"
+                                        class="link" target="_blank">iNaturalist
+                                        project</a> on the diversity of Keats Island. Likewise, some
+                                    videos and images have been used to build the section <a
+                                        href="https://keatsisland-conservation.com/smallworlds/" class="link"
+                                        target="_blank">Small Worlds</a> of the Keats Island
+                                    Conservation Society's Website.
+                                </div>
+                                <div class="col-6 hidden">
+                                    <a href="https://keatsisland-conservation.com/blog/" class="link" target="_blank">
+                                        <img src="./Images/KICS_outreachPage.png" class="img-fluid img-frame"
+                                            alt="KICS outreach page">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section class="container mb-5 p-5 content-BoxGCU ">
+        <div class="row p-3">
+            <div class="col-8 hidden align-items-center">
+                <hr>
+                <h1>EDUCATION</h1>
+                <hr>
+                Along with <a href="./EducationResources.html" class="link" target="_blank">Educational Resources</a>, I
+                have participated and coordinated multiple events and partnership programs to
+                brind STEM to classrooms in the Vancouver School District under volunteer positions as part of Lets Talk
+                Science (LTS) and UBC.
+            </div>
+            <div class="col-4 hidden align-items-center">
+                <img src="./Images/VolunteerMonthLTS.jpg" class="img-fluid" alt="">
+
+            </div>
+        </div>
+
+        <!-- COLLAPSED SECTION -->
+        <div class="container mt-5">
+            <div class="row ">
+                <!-- Expeditions and game collapsed content -->
+                <div class="col">
+                    <div class="d-flex justify-content-center mb-3">
+                        <button class="btn btn-custom" type="button" data-toggle="collapse"
+                            data-target="#EducationOutreachCollapse" aria-expanded="false"
+                            aria-controls="EducationOutreachCollapse">
+                            Read More
+                        </button>
+                    </div>
+                    <div class="collapse collapse-content" id="EducationOutreachCollapse">
+                        <div class="card card-body">
+                            <!-- CONTENT of collapsed section goes here -->
+                            <div class="row p-3 mb-5 align-items-center content-BoxGCU">
+                                <div class="col-6 hidden">
+                                    <img src="./Images/strathcona/Img5-1.jpg" class="img-fluid img-frame" alt="LTS">
+                                </div>
+                                <div class="col-6 hidden">
+                                    LTS Partnership program is based on the matching of a researcher with a classroom
+                                    from the Vancouver School District, delivering and preparing lessons that focus on
+                                    teaching the students about Science throughout the year, and divided in between 5
+                                    and 6 lessons.
+                                </div>
+                            </div>
+                            <!-- CONTENT of collapsed section row -->
+                            <div class="row p-3 mb-5 align-items-center content-BoxGCU">
+                                <div class="col-6 hidden">
+                                    I served as a coordinator for the Girls Coding Club, hosted at the UBC Learning
+                                    Exchange Centre and aimed towards teaching programming skills in Python to girls
+                                    from grades 5 to 7. Our team, which consisted of around 5 volunteers, developed and
+                                    delivered a curriculum based on python turtles and Trinket.
+                                </div>
+                                <div class="col-6 hidden">
+                                    <a href="https://keatsisland-conservation.com/blog/" class="link" target="_blank">
+                                        <img src="./Images/Girls_coding_2.png" class="img-fluid img-frame"
+                                            alt="KICS outreach page">
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- CONTENT of collapsed section row -->
+                            <div class="row p-3 mb-5 align-items-center content-BoxGCU">
+                                <div class="col-12 hidden">
+                                    <img src="./Images/LTS_gamingSymp.png" class="img-fluid img-frame"
+                                        alt="LTS gaming event">
+                                </div>
+                                <div class="col-12 hidden p-5">
+                                    I participated in multiple events in partnership with Lets Talk Science,
+                                    including a
+                                    Video Game Colloquium, aimed at students in Highschool with the goal of
+                                    advertising
+                                    programming as an important skill. I was part of the organization committee,
+                                    where I
+                                    helped with the creation of a Design Document to advertise the fictional
+                                    video game:
+                                </div>
+                            </div>
+
+                            <!-- CONTENT of collapsed section row -->
+                            <div class="row p-3 mb-5 align-items-center content-BoxGCU">
+                                <div class="col-12 hidden">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12 d-flex justify-content-center mb-3">
+                                            <iframe width="90%" height="315"
+                                                src="https://www.youtube.com/embed/UyA5XPnbcUw"
+                                                title="YouTube video player" frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowfullscreen=""></iframe>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12 d-flex justify-content-center">
+                                            <iframe width="90%" height="315"
+                                                src="https://www.youtube.com/embed/KvsZFrmF5So"
+                                                title="YouTube video player" frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowfullscreen=""></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 hidden p-5">
+                                    During my time as a Teaching Assistant at the University of British Columbia, I
+                                    engaged my students with detailed videos explaining complex concepts in Biology and
+                                    Genetics, for the courses BIOL234 (Fundamentals of Genetics) and BIOL233 (Genetics
+                                    For Life).
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <div id="footerJQ"></div>
+    <script>
+        $("#footerJQ").load("footer.html");
+    </script>
+
 
     <!-- Scripts required by Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -243,6 +408,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script defer src="app.js"></script>
 </body>
 
 </html>

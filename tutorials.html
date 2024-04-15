@@ -22,78 +22,30 @@
 
         gtag('config', 'G-V9043QSBQP');
     </script>
-    <title>Tutorials</title>
+    <title>Computer Science</title>
 </head>
 
 <body>
+    <div class="background-image" style="background-image: url('./Images/dice_anim.gif');height: 70vh"></div>
     <!-- Navbar -->
-    <div>
-        <nav class="navbar navbar-expand-md navbar-dark colorize pt-1 pt-2">
-            <a class="navbar-brand img-fluid" href="./index.html">
-                <img src="./Images/HomeIcon.png" style="width: 120px; padding: 1.2rem;" alt="">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- For jQuery use in navbar and footer-->
+    <div id="navbarJQ"></div>
+    <script>
+        $("#navbarJQ").load("navbar.html");
+    </script>
+    <div style="padding-top: 70vh;"></div>
 
-            <div class="collapse navbar-collapse justify-content-sm-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <!-- <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a> -->
-                        <a class="nav-link nav--text" href="./tutorials.html" style="color: white;">Tutorials</a>
-                    </li>
-                    <li class="nav-item">
-                        <!-- <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a> -->
-                        <a class="nav-link nav--text" href="./ProceduralArt.html" style="color: white;">Procedural
-                            Art</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav--text" href="./outreach.html" style="color: white;">Outreach</a>
-                    </li>
-                    <!-- A special type of dropdown item -->
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="./teaching.html" style="color: white;"
-                            id="navbarDropdown" role="button" data-toggle="dropdown">
-                            Teaching
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="teachingUBC.html"
-                                style="color: white; background-color: rgb(12, 12, 11);" target="_blank">Genetics at
-                                UBC</a>
-                            <div class="dropdown-divider" style="background-color: white; height: 2px;"></div>
-                            <a class="dropdown-item" href="teachingCode.html" style="color: white;"
-                                target="_blank">Coding for kids</a>
-                            <a class="dropdown-item" href="teachingSTEM.html" style="color: white;" target="_blank">STEM
-                                for kids</a> -->
-                    <li class="nav-item">
-                        <a class="nav-link nav--text" href="./teachingUBC.html" style="color: white;">Teaching</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav--text" href="./GameDesign.html" style="color: white;">Game Design</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav--text" href="./microptics.html" style="color: white;">Microscopy</a>
-                    </li>
-                </ul>
+    <section class="container mb-5 p-5 hidden content-BoxGCU">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <div class="">
+                    <img src="./Procedural_Art/BubbleSort.gif" class="img-fluid" alt="">
+                </div>
             </div>
-        </nav>
-    </div>
-
-
-    <div class="container-fluid p-3 pb-0 pt-0">
-        <div class="mainCenterTxt--black p-4">
-            An introduction to some famous algorithms in computer science using python. The tutorials presented in this
-            section are not
-            intended to be an introduction to the language, nor an introduction to programming. If you're starting as a
-            programmer, I recommend you looking into my courses in Udemy.
-            <br>
-            <hr>
-
-            <ol class="toc-list" role="list">
-                <li>
+            <div class="col-md-8">
+                <div class="person-description">
                     <hr>
-                    <span class="title">Classic optimization Algorithms</span>
+                    <span class="title">Optimization Algorithms</span>
                     <hr>
                     <ul role="list">
                         <li><a href="./tutorials/1_DynamicProgramming.html">Dynamic Programming</a></li>
@@ -102,82 +54,115 @@
                         <li><a href="./tutorials/1_KnapsackProblem.html">Knapsack Problem</a></li>
                         <li><a href="./tutorials/1_BubbleSort.html">Bubble Sort</a></li>
                     </ul>
-                </li>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <li>
+    <!-- SECTION Cellular automata -->
+    <section class="container mb-5 p-5 hidden content-BoxGCU">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <div class="person-description">
                     <hr>
-                    <span class="title">Emergence and Cellular Automata</span>
+                    <span class="title">Cellular automata</span>
                     <hr>
                     <ul role="list">
                         <li><a href="./tutorials/2_ElementaryCA.html">Elementary cellular automata</a></li>
                         <li><a href="./tutorials/2_LangtonsAnt.html">Langton's ant</a></li>
                         <li><a href="./tutorials/2_Conways_GOL.html">Conway's Game of Life</a></li>
                         <li><a href="./tutorials/2_Beehive_automata.html">Bee wave</a></li>
-                        <li><a href="./tutorials/2_Moores_algorithm.html">Moore's algorithm: Procedural cave generation</a></li>
+                        <li><a href="./tutorials/2_Moores_algorithm.html">Moore's algorithm: Procedural cave
+                                generation</a></li>
                         <li><a href="./tutorials/2_ParticleLife.html">Particle Life</a></li>
                         <li><a href="./tutorials/2_PathFinder.html">PathFinder: maze solver</a></li>
                     </ul>
-                </li>
-
-                <li>
-                    <hr>
-                    <span class="title">Math visualizations, interpolation and Mapping</span>
-                    <hr>
-                    <ul role="list">
-                        <li><a href="./tutorials/3_MathVisualizations_1DGrids.html">Mathematical function visualization in 1D rows</a></li>
-                        <li><a href="./tutorials/3_MathVisualizations_2DGrids.html">Mathematical function visualization in 2D grids</a></li>
-                        <li><a href="./tutorials/3_ImplicitFunctions.html">Implicit functions visualization</a></li>
-                        <li><a href="./tutorials/3_MathVisualizations_VectorFields.html">Vector fields</a></li>
-                        <li><a href="./tutorials/3_PolarCoordinates.html">Polar Coordinates</a></li>
-                        <li><a href="./tutorials/3_Bezier_Curves.html">Bezier curves</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <hr>
-                    <span class="title">Procedural Generation</span>
-                    <hr>
-                    <ul role="list">
-                        <li>Landmass' generation</li>
-                        <li>Maze generator with backtracking</li>
-                        <li><a href="./tutorials/4_WaveFunctionCollapse.html">Wave function collapse</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <hr>
-                    <span class="title">Genetic Algorithms</span>
-                    <hr>
-                    <ul role="list">
-                        <li>Population dynamics</li>
-                        <li>Predator-prey interaction</li>
-                    </ul>
-                </li>
-            </ol>
-
-
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="">
+                    <img src="./Procedural_Art/ParticleLife.gif" class="img-fluid" alt="">
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
+    <!-- SECTION Math mapping -->
+    <section class="container mb-5 p-5 hidden content-BoxGCU">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <div class="">
+                    <img src="./Procedural_Art/VectorFieldsI.gif" class="img-fluid" alt="">
+                </div>
+            </div>
+            <div class="col-md-8">
+                <hr>
+                <span class="title">Math visualizations, interpolation and Mapping</span>
+                <hr>
+                <ul role="list">
+                    <li><a href="./tutorials/3_MathVisualizations_1DGrids.html">Mathematical function visualization
+                            in 1D rows</a></li>
+                    <li><a href="./tutorials/3_MathVisualizations_2DGrids.html">Mathematical function visualization
+                            in 2D grids</a></li>
+                    <li><a href="./tutorials/3_ImplicitFunctions.html">Implicit functions visualization</a></li>
+                    <li><a href="./tutorials/3_MathVisualizations_VectorFields.html">Vector fields</a></li>
+                    <li><a href="./tutorials/3_PolarCoordinates.html">Polar Coordinates</a></li>
+                    <li><a href="./tutorials/3_Bezier_Curves.html">Bezier curves</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION Procedural Generation -->
+    <section class="container mb-5 p-5 hidden content-BoxGCU">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <hr>
+                <span class="title">Procedural Generation</span>
+                <hr>
+                <ul role="list">
+                    <!-- <li>Landmass' generation</li>
+                    <li>Maze generator with backtracking</li> -->
+                    <li><a href="./tutorials/4_WaveFunctionCollapse.html">Wave function collapse</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <div class="">
+                    <img src="./Procedural_Art/wfc.gif" class="img-fluid" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Section -->
+    <!-- <section class="container mb-5 p-5 content-BoxGCU hidden" style="background-color: rgb(50,50,50);">
+        <hr>
+        <span class="title">Genetic Algorithms</span>
+        <hr>
+        <ul role="list">
+            <li>Population dynamics</li>
+            <li>Predator-prey interaction</li>
+        </ul>
+    </section> -->
+
+    <!-- FOOTER -->
+    <div id="footerJQ"></div>
+    <script>
+        $("#footerJQ").load("footer.html");
+    </script>
+
+    <!-- Scripts required by Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script defer src="app.js"></script>
 </body>
-
-
-
-
-
-
-
-
-
-<!-- Scripts required by Bootstrap -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
 
 </html>
