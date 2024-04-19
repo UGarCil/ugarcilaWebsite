@@ -82,10 +82,10 @@ nav {
 
 /* CONTROLS ATTRIBUTES OF THE NAVBAR LINKS */
 .navbar-nav .nav-link {
-    font-size: 1.5em; /* Increase font size */
+    font-size: 1.3em; /* Increase font size */
     /* padding: 15px 50px; */
-    margin: 25px 25px; /* Adjust margin */
-    font-weight: 500;
+    margin: 10px 10px; /* Adjust margin */
+    font-weight: 600;
     color: #f0d2aa;
 }
 
