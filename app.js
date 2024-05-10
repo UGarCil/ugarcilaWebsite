@@ -1,6 +1,6 @@
 const options = {
     root: null,
-    threshold: 0.04, // Adjust the threshold value to 0.9 for 90% visibility
+    threshold: 0.02, // Adjust the threshold value to 0.9 for 90% visibility
     rootMargin: "0px", // Adjust as needed
 };
 

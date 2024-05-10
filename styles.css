@@ -1,6 +1,8 @@
 body {
-    background: rgb(20, 20, 20);
+    /* background: #161b19; */
+    background-image: url("./Images/bg_body_sm.png");
     color: ivory;
+    /* background-repeat: repeat; */
     /* background: rgb(233, 233, 233);
     
     color: black; */
@@ -61,6 +63,8 @@ nav {
     margin-top: -2px;
     padding-top: 1px;
     padding-left: 5%;
+    background-image: url("./Images/bg_nav.png");
+
 }
 
 
@@ -119,7 +123,8 @@ nav {
 }
 
 footer {
-    background-image: url(./images/bg_navbar.jpg);
+    /* background-image: url(./images/bg_navbar.jpg); */
+    background-color: #141817;;
     font-size: 2rem;
     color: ivory;
 }
@@ -218,7 +223,7 @@ hr.style-two {
 }
 
 .custom-icon {
-    max-width: 8%; /* Ensure image does not exceed its parent's width */
+    max-width: 6%; /* Ensure image does not exceed its parent's width */
     height: auto; /* Maintain aspect ratio */
   }
 
@@ -284,11 +289,23 @@ hr.style-two {
 }
 
 .content-BoxGCU{
-    background-color: rgb(30, 30, 30);
+    /* background-color: #212525; */
+    background-image: url("./Images/bg_contentBox.png");
     margin: 0 auto; /* Center the image horizontally */
-    max-width: 90%; /* Limit the width of the image */
+    max-width: 95%; /* Limit the width of the image */
     padding: 10px; /* Add white margin around the image */
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4); /* Add shadow to the margin */
+    
+  }
+
+.Subcontent-BoxGCU1{
+    /* background-color: #212525; */
+    background-image: url("./Images/bg_contentBox_light1.png");
+    margin: 0 auto; /* Center the image horizontally */
+    max-width: 95%; /* Limit the width of the image */
+    padding: 10px; /* Add white margin around the image */
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4); /* Add shadow to the margin */
+    
   }
 
 .img-frame {
