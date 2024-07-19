@@ -13,7 +13,15 @@
     <link rel="stylesheet" text="text/css" href="./styles.css">
     <meta charset="UTF-8">
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V9043QSBQP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
+        gtag('config', 'G-V9043QSBQP');
+    </script>
 
     <title>Microscopy</title>
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -29,7 +37,7 @@
 
 <body>
     <div class="background-image"
-        style="background-image: url('./Images/Microptics_img4_ObeliSP001_uunkn_10XZEISS.jpg');height: 65vh"></div>
+        style="background-image: url('./Images/Microptics_img4_ObeliSP001_uunkn_10XZEISS.jpg');height: 75vh"></div>
     <!-- Navbar -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- For jQuery use in navbar and footer-->
     <div id="navbarJQ"></div>
@@ -38,38 +46,33 @@
     </script>
     <div style="padding-top: 65vh;"></div>
 
+
     <section class="mb-5">
         <div class="row align-items-center content-BoxGCU p-1">
-            <div class="col-12 justify-content-center ">
+            <div class="col">
+                Here is a list of the software and applications I have made along with the camera setups shown below:
+                <br>
                 <hr>
-                Raspberry Pi (left eyepiece) and customized GoPro videocamera (right eyepiece) mounted on 30 mm
-                eyepieces of an
-                Olympus SZ61 Stereoscope.
-                <hr>
+                <ul>
+                    <li>
+                        <a class="link" href="https://github.com/UGarCil/Micrometry">Micrometry:</a> Is a python based
+                        GUI that
+                        allows the user to take measurements under the live feed of their microscope camera.
+                    </li>
+                    <li>
+                        <a class="link" href="https://github.com/UGarCil/ScalebarInserter">ScalebarInserter:</a> Is a
+                        python based script that allows the user to automatically embed scalebars into their images.
+                    </li>
+                </ul>
+
             </div>
         </div>
 
         <div class="row align-items-center content-BoxGCU p-1">
-            <div class="col-lg-6 col-12 justify-content-center ">
-                <img src="./Images/Microptics_000_GoPro_Raspberry_adapter_Olympus.jpg" alt=""
-                    class="img-fluid img-frame">
-            </div>
-            <div class="col-lg-6 col-12 justify-content-center ">
-                <div class="row ">
-                    <div class="col-6"><img class="img-fluid img-frame"
-                            src="./Images/Microptics_img10_PseudSP001_uhabd_05XLEITZ.jpg" alt=""></div>
-                    <div class="col-6"><img class="img-fluid img-frame"
-                            src="./Images/Microptics_img11_AlgaeSP002_uunkn_40XZEISS.jpg" alt=""></div>
-                </div>
-                <div class="row ">
-                    <div class="col-6"><img class="img-fluid img-frame"
-                            src="./Images/Microptics_img2_AcariSP005_uhabv_3d5XLEITZ.jpg" alt=""></div>
-                    <div class="col-6"><img class="img-fluid img-frame"
-                            src="./Images/Microptics_img3_MilleSP001_uhabl_3d5XLEITZ.jpg" alt=""></div>
-                </div>
-            </div>
+
         </div>
     </section>
+
 
     <section class="container mb-5 p-5 content-BoxGCU">
         <div class="row p-3 align-items-center">
@@ -147,6 +150,39 @@
 
 
 
+    </section>
+
+    <section class="mb-5">
+        <div class="row align-items-center content-BoxGCU p-1">
+            <div class="col-12 justify-content-center ">
+                <hr>
+                Raspberry Pi (left eyepiece) and customized GoPro videocamera (right eyepiece) mounted on 30 mm
+                eyepieces of an
+                Olympus SZ61 Stereoscope.
+                <hr>
+            </div>
+        </div>
+
+        <div class="row align-items-center content-BoxGCU p-1">
+            <div class="col-lg-6 col-12 justify-content-center ">
+                <img src="./Images/Microptics_000_GoPro_Raspberry_adapter_Olympus.jpg" alt=""
+                    class="img-fluid img-frame">
+            </div>
+            <div class="col-lg-6 col-12 justify-content-center ">
+                <div class="row ">
+                    <div class="col-6"><img class="img-fluid img-frame"
+                            src="./Images/Microptics_img10_PseudSP001_uhabd_05XLEITZ.jpg" alt=""></div>
+                    <div class="col-6"><img class="img-fluid img-frame"
+                            src="./Images/Microptics_img11_AlgaeSP002_uunkn_40XZEISS.jpg" alt=""></div>
+                </div>
+                <div class="row ">
+                    <div class="col-6"><img class="img-fluid img-frame"
+                            src="./Images/Microptics_img2_AcariSP005_uhabv_3d5XLEITZ.jpg" alt=""></div>
+                    <div class="col-6"><img class="img-fluid img-frame"
+                            src="./Images/Microptics_img3_MilleSP001_uhabl_3d5XLEITZ.jpg" alt=""></div>
+                </div>
+            </div>
+        </div>
     </section>
 
 
